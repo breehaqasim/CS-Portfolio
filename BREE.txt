@@ -1,0 +1,313 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+\usepackage{paracol}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Breeha Qasim} \\ \vspace{1pt}
+    DHA, Karachi, Pakistan \textbar\ 
+    \href{mailto:breehaaqasim@gmail.com}{\underline{breehaaqasim@gmail.com}} \textbar\ 
+    \href{tel:+923208227150}{\underline{+92 320 8227150}} \textbar\ 
+    \href{https://breehaqasim.carrd.co/}{\underline{breehaqasim.carrd.co}} \textbar\ 
+    \href{https://linkedin.com/in/breeha-qasim-a86854213}{\underline{linkedin.com/in/breeha-qasim-a86854213}} \textbar\ 
+    \href{https://github.com/breehaqasim}{\underline{github.com/breehaqasim}}
+\end{center}
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages}{: Python, C++, SQL, HTML, CSS, JavaScript, C} \\
+    \textbf{Frameworks/Technologies}{: React.js, Firebase, MongoDB, Neo4j, Verilog, SDL2.0} \\
+    \textbf{Tools}{: MySQL, Qt Designer, DB Designer, Canva, Git, OOP}
+  }}
+\end{itemize}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Habib University}{Aug 2022 -- Present} % Location removed
+    {BS in Computer Science; CGPA: 3.55 | 80\% Merit-Based Scholarship}{}
+    \resumeItemListStart
+      \resumeItem{\textbf{Relevant Courses:} Programming Fundamentals, Calculus 1 \& 2, Data Structures \& Algorithms, Discrete Mathematics, Object Oriented Programming, Database Systems, Linear Algebra, Probability \& Statistics, Computer Architecture, Digital Logic Design, Operating Systems, Graph Data Science, Software Engineering \& Data Science}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Nixor College}{Sep 2020 -- Aug 2022} % Location removed
+    {Cambridge International A Levels (3 A’s – Mathematics, Physics, Computer Science)}{}
+
+  \resumeSubheading
+    {The City School, Darakshan Campus}{Aug 2017 -- Dec 2020} % Location removed
+    {Cambridge International O Levels (4 A*s, 3 As, 1 B)}{}
+
+\resumeSubHeadingListEnd
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Full Stack Development Intern – Khidmat Project}{May 2025 -- Present}
+    {Karachi Vocational Training Centre (KVTC)}{Karachi, Pakistan}
+    \resumeItemListStart
+      \resumeItem{Developing a custom DBMS with a responsive frontend to digitize, organize, and manage student records, streamlining CRUD operations and data retrieval.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Lab Curriculum Developer – Operating Systems Course}{June 2025 -- Present}
+    {Habib University}{Karachi, Pakistan}
+    \resumeItemListStart
+      \resumeItem{Under the supervision of Dr. Bilal Wajid, designing and piloting 15 immersive OS lab sessions—focused on scheduling, memory, concurrency, and persistence—to enhance conceptual clarity and establish a scalable hands-on curriculum for CS/CE students.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Teacher Assistant}{Jan 2020 -- Sept 2020}
+    {Unplugged Science with Anila}{Remote}
+    \resumeItemListStart
+      \resumeItem{Taught O-Level Chemistry over Zoom, prepared notes, and designed practice worksheets.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+
+
+
+%-----------PROJECTS-----------
+\section{Academic Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {\textbf{GDS Bibliographic Graph Project} $|$ \emph{Neo4j, Cypher}}{Spring 2025}
+    \resumeItemListStart
+      \resumeItem{Developed a Neo4j-based pipeline using GraphML and Cypher to classify journals and predict co-authorship via Linear Regression and Random Forest.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Skincare \& Beauty Consultancy Platform} $|$ \emph{React.js, HTML/CSS, Firebase}}{Spring 2025}
+    \resumeItemListStart
+      \resumeItem{Developed a skincare consultancy platform with appointment booking, product listings, and Firebase-authenticated responsive components.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Energy-Constrained Drone Navigation} $|$ \emph{Python, Graph Algorithms}}{Spring 2025}
+    \resumeItemListStart
+      \resumeItem{Designed and tested energy-efficient pathfinding algorithms using shortest-path and greedy heuristics on simulated real-world drone scenarios.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Tic Tac Toe Game} $|$ \emph{Verilog/VHDL}}{Fall 2023}
+    \resumeItemListStart
+      \resumeItem{Built an interactive FPGA-based game with VGA display and keypad input on Basys 3, enhancing user experience through real-time processing.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{University Admission Tracker System} $|$ \emph{Python, SQL, Qt}}{Fall 2023}
+    \resumeItemListStart
+      \resumeItem{Designed a user-friendly desktop application for university application tracking, integrating Python, MySQL, and Qt for the UI.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Pacman Pursuit} $|$ \emph{C++, SDL2}}{Fall 2023}
+    \resumeItemListStart
+      \resumeItem{Developed a challenging SDL2-based game inspired by the 'World’s Hardest Game' using OOP principles, with polymorphic mechanics and optimized performance via efficient memory and collision handling.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Courses \& Certifications}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\textbf{Neo4j Certified Professional} – \emph{Neo4j}, Earned Mar 2025}{}
+
+\resumeProjectHeading
+  {\textbf{Neo4j Fundamentals} – \emph{Neo4j}, Earned Apr 2025}{}
+
+\resumeProjectHeading
+  {\textbf{Cypher Indexes and Constraints} – \emph{Neo4j}, Earned Apr 2025}{}
+
+\resumeProjectHeading
+  {\textbf{Graph Data Modeling Fundamentals} – \emph{Neo4j}, Earned Apr 2025}{}
+
+\resumeProjectHeading
+  {\textbf{Importing Data Fundamentals} – \emph{Neo4j}, Earned Apr 2025}{}
+
+\resumeProjectHeading
+  {\textbf{Using Neo4j with Python} – \emph{Neo4j}, Earned Apr 2025}{}
+
+\resumeProjectHeading
+  {\textbf{Learn HTML, CSS, JavaScript} – \emph{Codecademy}, Earned June 2024}{}
+
+\resumeProjectHeading
+  {\textbf{Fundamentals of Digital Marketing} – \emph{Google}, Earned 2023}{}
+
+\resumeProjectHeading
+  {\textbf{Social \& Behavioral Responsible Conduct} – \emph{CITI Program}, Earned 2022}{}
+
+\resumeProjectHeading
+  {\textbf{SBE Comprehensive} – \emph{CITI Program}, Earned 2022}{}
+
+\resumeSubHeadingListEnd
+
+
+
+\section{Awards \& Leadership}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\textbf{80\% Merit Based Scholarship} – \emph{Habib University}, Awarded 2022}{}
+
+\resumeProjectHeading
+  {\textbf{High Achiever Award} – \emph{The City School}, Awarded 2020}{}
+
+\resumeProjectHeading
+  {\textbf{Space Center Certificate of Completion} – \emph{NASA Camp Kennedy}, Awarded 2019}{}
+
+\resumeProjectHeading
+  {\textbf{Design Lead} – \emph{Habib Debate Union, Mouseequi, Raqs}}{}
+
+\resumeProjectHeading
+  {\textbf{Marketing Assistant Director} – \emph{HU Sports Olympiad}}{}
+
+\resumeProjectHeading
+  {\textbf{Marketing Lead} – \emph{Sports Recreational Society}}{}
+
+\resumeProjectHeading
+  {\textbf{Chief Marketing Officer} – \emph{Raft Regatta Team, Nixor College}}{}
+
+\resumeSubHeadingListEnd
+
+
+
+%
+
+
+
+%-------------------------------------------
+\end{document}

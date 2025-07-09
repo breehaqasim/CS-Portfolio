@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveInsight - Breeha Qasim Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { font-family: 'Inter', sans-serif; }
+        
+        .bg-dark { background: #000000; }
+        .text-cyan { color: #c77dff; }
+        .bg-cyan { background: #c77dff; }
+        .border-cyan { border-color: #c77dff; }
+        
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #c77dff;
+            animation: pulse 2s infinite;
+        }
+        
+        .node:nth-child(2n) { background: #9d4edd; }
+        .node:nth-child(3n) { background: #7b2cbf; }
+        .node:nth-child(4n) { background: #5a189a; }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c77dff, transparent);
+            animation: flow 3s infinite;
+        }
+        
+        @keyframes flow {
+            0% { opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0; }
+        }
+        
+        .card {
+            background: rgba(36, 0, 70, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #c77dff, #9d4edd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white overflow-x-hidden">
+    <!-- Network Background Animation -->
+    <div class="network-bg" id="networkBg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 p-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-cyan">LiveInsight</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-cyan transition">Home</a>
+                <a href="#projects" class="hover:text-cyan transition">Projects</a>
+                <a href="#tech" class="hover:text-cyan transition">Tech Stack</a>
+                <a href="#experience" class="hover:text-cyan transition">Experience</a>
+                <a href="#education" class="hover:text-cyan transition">Education</a>
+                <a href="#contact" class="hover:text-cyan transition">Contact</a>
+            </div>
+            <!-- <div class="flex items-center space-x-4">
+                <i class="fas fa-file-alt text-cyan"></i>
+                <i class="fas fa-sparkles text-cyan"></i>
+            </div> -->
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="text-center z-10">
+            <!-- <div class="inline-block bg-cyan text-black px-4 py-2 rounded-full text-sm font-medium mb-8">
+                Full Stack Developer
+            </div> -->
+            <h1 class="text-6xl font-bold mb-4">
+                Hello 👋, I'm<br>
+                <span class="gradient-text">Breeha Qasim</span>
+            </h1>
+            <p class="text-gray-400 text-xl mb-12">Exploring AI & Data Science | Open for Full Stack Development Projects</p>
+            
+            <div class="mb-8">
+                <h3 class="text-cyan text-lg mb-4">● About Me</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto">
+                    A fresh Computer Science graduate from Habib University (80% Merit Scholar) eager to kickstart my career in technology. As a recent graduate, I'm passionate about exploring emerging fields like Artificial Intelligence and Data Science while building strong foundations in full-stack development. Through academic projects and internships, I've gained hands-on experience with modern technologies including React.js, Neo4j, Python, and database systems. I'm excited to apply my learning to real-world challenges and contribute to innovative projects as I begin my professional journey.
+                </p>
+            </div>
+            
+            <div class="flex justify-center space-x-4">
+                <button onclick="location.href='#projects'" class="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition">
+                    View Projects →
+                </button>
+                <button onclick="location.href='#contact'" class="text-white px-6 py-3 rounded-lg hover:opacity-90 transition" style="background: linear-gradient(45deg, #c77dff, #9d4edd);">
+                    Contact Me
+                </button>
+                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition flex items-center">
+                    <i class="fas fa-file-alt mr-2"></i> Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Professional Experience</h2>
+            <p class="text-gray-400 text-center mb-16">My professional journey and key accomplishments.</p>
+            
+            <div class="flex items-center justify-center mb-8">
+                <div class="bg-gray-700 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-code-branch text-cyan mr-2"></i>20+ repositories • 300+ commits
+                </div>
+            </div>
+            
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Centered vertical timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full" style="background: linear-gradient(to bottom, #c77dff, #9d4edd);"></div>
+                
+                <!-- Experience 1 - Right side -->
+                <div class="relative mb-12">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full top-6 z-10" style="background: #c77dff;"></div>
+                    <div class="ml-auto w-1/2 pl-8">
+                        <div class="card rounded-lg p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-cyan font-semibold text-lg">Full Stack Development Intern</span>
+                                <span class="bg-gray-700 text-xs px-3 py-1 rounded-full whitespace-nowrap">
+                                    May 2025 - Present
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Karachi Vocational Training Centre (KVTC) - Khidmat Project</h3>
+                            <h4 class="text-cyan mb-3 font-semibold text-sm">Key Achievements</h4>
+                            <ul class="space-y-2 text-gray-300 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan mr-2 mt-1">→</span>
+                                    <span>Developing a custom DBMS with responsive frontend to digitize, organize, and manage student records, streamlining CRUD operations and data retrieval.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan mr-2 mt-1">→</span>
+                                    <span>Scraped and organized institutional data from OneDrive, maintaining Google Sheets for data tracking and gap analysis.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan mr-2 mt-1">→</span>
+                                    <span>Designed database architecture using Supabase, creating tables and storage buckets for efficient data management.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan mr-2 mt-1">→</span>
+                                    <span>Created UI/UX prototypes in Figma with supervisor approval workflow, then developed dual-dashboard system for Admin and Staff users with role-specific functionalities.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 - Left side -->
+                <div class="relative mb-12">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full top-6 z-10" style="background: #c77dff;"></div>
+                    <div class="mr-auto w-1/2 pr-8">
+                        <div class="card rounded-lg p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-cyan font-semibold text-lg">Lab Curriculum Developer</span>
+                                <span class="bg-gray-700 text-xs px-3 py-1 rounded-full whitespace-nowrap">
+                                    June 2025 - Present
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Habib University - Operating Systems Course</h3>
+                            <h4 class="text-cyan mb-3 font-semibold text-sm">Key Achievements</h4>
+                            <ul class="space-y-2 text-gray-300 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan mr-2 mt-1">→</span>
+                                    <span>Under the supervision of Dr. Bilal Wajid, designing and piloting 15 immersive OS lab sessions—focused on scheduling, memory, concurrency, and persistence—to enhance conceptual clarity and establish a scalable hands-on curriculum for CS/CE students.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3 - Right side -->
+                <div class="relative mb-12">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full top-6 z-10" style="background: #c77dff;"></div>
+                    <div class="ml-auto w-1/2 pl-8">
+                        <div class="card rounded-lg p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-cyan font-semibold text-lg">Teacher Assistant</span>
+                                <span class="bg-gray-700 text-xs px-3 py-1 rounded-full whitespace-nowrap">
+                                    Jan 2020 - Sept 2020
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Unplugged Science with Anila</h3>
+                            <h4 class="text-cyan mb-3 font-semibold text-sm">Key Achievements</h4>
+                            <ul class="space-y-2 text-gray-300 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan mr-2 mt-1">→</span>
+                                    <span>Taught O-Level Chemistry over Zoom, prepared notes, and designed practice worksheets.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Projects</h2>
+            <p class="text-gray-400 text-center mb-12">Showcasing my work spanning web applications, graph databases, and innovative solutions.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+            
+
+                <!-- Project 2 - Skincare Platform -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <!-- Project Thumbnail -->
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="Project 1.png" alt="Skincare Platform Screenshot" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full text-white bg-black bg-opacity-70" style="border: 1px solid #c77dff;">Featured</span>
+                    </div>
+                    
+                    <!-- Project Content -->
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-cyan">Skincare & Beauty Consultancy Platform</h3>
+                            <span class="text-sm text-gray-400">Spring 2025</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">Developed a skincare consultancy platform with appointment booking, product listings, and Firebase-authenticated responsive components.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #c77dff;">React.js</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #9d4edd;">HTML/CSS</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #7b2cbf;">Firebase</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #5a189a;">Responsive</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/breehaqasim/GlowSense-Skincare-Beauty-Consultancy-Platform" target="_blank" class="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition">
+                                <i class="fab fa-github mr-2"></i>
+                                Source
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 rounded-lg text-sm transition text-white" style="background: #c77dff;">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Pacman Pursuit -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <!-- Project Thumbnail -->
+                    <!-- <div class="h-48 bg-gradient-to-br from-yellow-900 to-orange-800 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-gamepad text-6xl text-yellow-300 mb-4"></i>
+                                <div class="bg-black bg-opacity-80 rounded-lg p-4 backdrop-blur-sm">
+                                    <div class="text-yellow-400 text-lg mb-2">👾 PACMAN PURSUIT</div>
+                                    <div class="text-green-400 text-sm">🟢 ● ● ● ● ●</div>
+                                    <div class="text-red-400 text-sm">👻 Enemy AI</div>
+                                    <div class="text-cyan text-sm">⚡ Real-time Physics</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="Project 2.jpg" alt="Skincare Platform Screenshot" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full text-white bg-black bg-opacity-70" style="border: 1px solid #c77dff;">Featured</span>
+                    </div>
+                    
+                    <!-- Project Content -->
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-cyan">Pacman Pursuit</h3>
+                            <span class="text-sm text-gray-400">Fall 2023</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">Developed a challenging SDL2-based game inspired by the 'World's Hardest Game' using OOP principles, with polymorphic mechanics and optimized performance via efficient memory and collision handling.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #9d4edd;">C++</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #7b2cbf;">SDL2</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #5a189a;">OOP</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #3c096c;">Game Engine</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/breehaqasim/Pacman-Pursuit---OOP" target="_blank" class="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition">
+                                <i class="fab fa-github mr-2"></i>
+                                Source
+                            </a>
+                            <a href="https://www.linkedin.com/posts/breehaqasim_oopproject-oop-computerscience-activity-7142826705605357570-ADe4?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYNhgYBr-eEwVORpF_yWVupTu1ln__l1QI" class="flex items-center px-4 py-2 rounded-lg text-sm transition text-white" style="background: #c77dff;">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 - University Admission Tracker -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <!-- Project Thumbnail -->
+                    <!-- <div class="h-48 bg-gradient-to-br from-indigo-900 to-blue-800 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-graduation-cap text-6xl text-indigo-300 mb-4"></i>
+                                <div class="bg-white bg-opacity-90 rounded-lg p-4 text-gray-800 shadow-lg">
+                                    <div class="text-sm font-semibold mb-2">🎓 University Tracker</div>
+                                    <div class="text-xs flex items-center justify-between mb-1">
+                                        <span>Applications:</span>
+                                        <span class="text-green-600 font-bold">12</span>
+                                    </div>
+                                    <div class="text-xs flex items-center justify-between mb-1">
+                                        <span>Accepted:</span>
+                                        <span class="text-blue-600 font-bold">3</span>
+                                    </div>
+                                    <div class="text-xs flex items-center justify-between">
+                                        <span>Pending:</span>
+                                        <span class="text-orange-600 font-bold">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="Project 3.png" alt="Skincare Platform Screenshot" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full text-white bg-black bg-opacity-70" style="border: 1px solid #c77dff;">Featured</span>
+                    </div>
+                    
+                    <!-- Project Content -->
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-cyan">University Admission Tracker System</h3>
+                            <span class="text-sm text-gray-400">Fall 2023</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">Designed a user-friendly desktop application for university application tracking, integrating Python, MySQL, and Qt for the UI.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #9d4edd;">Python</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #7b2cbf;">SQL</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #5a189a;">Qt</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #3c096c;">MySQL</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/breehaqasim/University-Admission-Tracker---Database-System" target="_blank" class="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition">
+                                <i class="fab fa-github mr-2"></i>
+                                Source
+                            </a>
+                            <a href="https://www.linkedin.com/posts/breehaqasim_databasemanagement-dbms-dbproject-activity-7142866647224168448-lPKa?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYNhgYBr-eEwVORpF_yWVupTu1ln__l1QI" class="flex items-center px-4 py-2 rounded-lg text-sm transition text-white" style="background: #c77dff;">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 1 - GDS Bibliographic Graph -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <!-- Project Thumbnail -->
+                    <div class="h-48 bg-gradient-to-br from-purple-900 to-gray-800 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-project-diagram text-6xl text-purple-300 mb-4"></i>
+                                <div class="bg-black bg-opacity-50 rounded-lg p-4 backdrop-blur-sm">
+                                    <div class="text-cyan text-sm font-mono">MATCH (a:Author)-[:CO_AUTHORED]->(p:Paper)</div>
+                                    <div class="text-cyan text-sm font-mono">WHERE p.year > 2020</div>
+                                    <div class="text-cyan text-sm font-mono">RETURN a.name, count(p)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full text-black" style="background: #c77dff;">Featured</span>
+                    </div>
+                    
+                    <!-- Project Content -->
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-cyan">GDS Bibliographic Graph Project</h3>
+                            <span class="text-sm text-gray-400">Spring 2025</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">Developed a Neo4j-based pipeline using GraphML and Cypher to classify journals and predict co-authorship via Linear Regression and Random Forest.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #9d4edd;">Neo4j</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #7b2cbf;">Cypher</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #5a189a;">GraphML</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #3c096c;">ML</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/breehaqasim/GDS-Bibliographic-GraphML-Project" rel="noopener noreferrer" class="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition">
+                                <i class="fab fa-github mr-2"></i>
+                                Source
+                            </a>
+                            <!-- <a href="#" class="flex items-center px-4 py-2 rounded-lg text-sm transition text-white" style="background: #c77dff;">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Demo
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            
+            <!-- Hidden Projects (initially hidden) -->
+            <div id="moreProjects" class="grid md:grid-cols-2 gap-6 mb-8" style="display: none;">
+
+
+                <!-- Project 4 - Tic Tac Toe FPGA -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <!-- Project Thumbnail -->
+                    <div class="h-48 bg-gradient-to-br from-orange-900 to-red-800 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-microchip text-6xl text-orange-300 mb-4"></i>
+                                <div class="bg-gray-900 bg-opacity-80 rounded-lg p-4 backdrop-blur-sm">
+                                    <div class="grid grid-cols-3 gap-1 text-2xl">
+                                        <div class="w-8 h-8 bg-gray-700 rounded flex items-center justify-center text-cyan">X</div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded flex items-center justify-center text-pink-400">O</div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded"></div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded flex items-center justify-center text-pink-400">O</div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded flex items-center justify-center text-cyan">X</div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded"></div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded"></div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded flex items-center justify-center text-cyan">X</div>
+                                        <div class="w-8 h-8 bg-gray-700 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Content -->
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-cyan">Tic Tac Toe Game</h3>
+                            <span class="text-sm text-gray-400">Fall 2023</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">Built an interactive FPGA-based game with VGA display and keypad input on Basys 3, enhancing user experience through real-time processing.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #9d4edd;">Verilog/VHDL</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #7b2cbf;">FPGA</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #5a189a;">VGA Display</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #3c096c;">Basys 3</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <!-- <a href="https://github.com/breehaqasim/tic-tac-toe-fpga" target="_blank" class="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition">
+                                <i class="fab fa-github mr-2"></i>
+                                Source
+                            </a> -->
+                            <a href="https://www.linkedin.com/posts/breehaqasim_fpga-tictactoe-game-activity-7142831262850883586--Ih9?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYNhgYBr-eEwVORpF_yWVupTu1ln__l1QI" class="flex items-center px-4 py-2 rounded-lg text-sm transition text-white" style="background: #c77dff;">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Demo
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Drone Navigation -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <!-- Project Thumbnail -->
+                    <div class="h-48 bg-gradient-to-br from-blue-900 to-cyan-800 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-drone text-6xl text-blue-300 mb-4"></i>
+                                <div class="bg-black bg-opacity-70 rounded-lg p-4 backdrop-blur-sm">
+                                    <div class="text-green-400 text-sm font-mono">🔋 Energy: 85%</div>
+                                    <div class="text-yellow-400 text-sm font-mono">📍 Position: (42, 73)</div>
+                                    <div class="text-cyan text-sm font-mono">🎯 Target: (120, 95)</div>
+                                    <div class="text-purple-400 text-sm font-mono">⚡ Algorithm: A*</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full text-black" style="background: #c77dff;">Featured</span>
+                    </div>
+                    
+                    <!-- Project Content -->
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-cyan">Energy-Constrained Drone Navigation</h3>
+                            <span class="text-sm text-gray-400">Spring 2025</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">Designed and tested energy-efficient pathfinding algorithms using shortest-path and greedy heuristics on simulated real-world drone scenarios.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #9d4edd;">Python</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #7b2cbf;">Graph Algorithms</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #5a189a;">A* Search</span>
+                            <span class="px-2 py-1 text-xs rounded text-white" style="background: #3c096c;">Simulation</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/breehaqasim/Energy-Constrained-Drone-Nav---ADA-Project" target="_blank" class="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition">
+                                <i class="fab fa-github mr-2"></i>
+                                Source
+                            </a>
+                            <!-- <a href="#" class="flex items-center px-4 py-2 rounded-lg text-sm transition text-white" style="background: #c77dff;">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Demo
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Show More Projects Button -->
+            <div class="text-center">
+                <button id="viewMoreBtn" class="px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-lg text-white transition">
+                    View More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">🧑‍💻 Tech Stack —</h2>
+            <p class="text-gray-400 text-center mb-16">My technical skills and certifications.</p>
+            
+            <div class="card rounded-lg p-8 mb-8">
+                <!-- <div class="text-center mb-8">
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-cyan text-2xl mr-3"></i>
+                        <h3 class="text-2xl font-bold text-white">Tech Stack —</h3>
+                    </div>
+                    <p class="text-gray-400">My technical skills automatically analyzed from GitHub repositories and contributions.</p>
+                </div> -->
+                
+                <!-- Top Skills Analysis -->
+                <div class="mb-8">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-chart-bar text-cyan mr-2"></i>
+                        <h4 class="text-lg font-semibold text-white">Top Skills Analysis</h4>
+                    </div>
+                    
+                    <!-- Skill Categories -->
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="category-btn text-black px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition" data-category="backend" style="background: #c77dff;">Backend</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="mobile">Mobile</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="frontend">Frontend</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="systems">Systems</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="cloud">Cloud</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="ai">AI</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="architecture">Architecture</span>
+                    </div>
+                    
+                    <!-- Skills with Progress Bars -->
+                    <div id="skillsContainer" class="space-y-6"></div>
+                </div>
+
+                <!-- View Complete Tech Stack Button -->
+                <div class="text-center mb-3">
+                    <button id="techStackBtn" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-cyan border border-cyan px-6 py-3 rounded-lg transition">
+                        <i class="fas fa-code mr-2"></i>
+                        View Complete Tech Stack
+                    </button>
+                </div>
+                
+    </section>
+
+    <!-- GitHub Public Stats Section -->
+    <section id="github" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- <h3 class="text-2xl font-bold text-center mb-4 text-white">GitHub Public Stats</h3>
+            <p class="text-gray-400 text-center mb-8">A visualization of my coding activities and contributions on GitHub.</p> -->
+
+            <h2 class="text-4xl font-bold text-center mb-4">GitHub Public Stats</h2>
+            <p class="text-gray-400 text-center mb-16">A visualization of my coding activities and contributions on GitHub.</p>
+            
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl mb-2" style="color: #c77dff;">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <div class="text-2xl font-bold text-white">21</div>
+                    <div class="text-sm text-gray-400">Repositories</div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl mb-2" style="color: #9d4edd;">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="text-2xl font-bold text-white">0</div>
+                    <div class="text-sm text-gray-400">Stars</div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl mb-2" style="color: #7b2cbf;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="text-2xl font-bold text-white">7</div>
+                    <div class="text-sm text-gray-400">Followers</div>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl mb-2" style="color: #5a189a;">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="text-2xl font-bold text-white">338</div>
+                    <div class="text-sm text-gray-400">Contributions</div>
+                </div>
+            </div>
+            
+            <!-- GitHub Stats and Languages -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- GitHub Stats -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-cyan mb-4">Breeha Qasim's GitHub Stats</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-2"></i>
+                            <span class="text-gray-300">Total Stars Earned:</span>
+                            <span class="ml-auto text-white font-semibold">0</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-cyan mr-2"></i>
+                            <span class="text-gray-300">Total Commits (2025):</span>
+                            <span class="ml-auto text-white font-semibold">338</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-folder text-blue-400 mr-2"></i>
+                            <span class="text-gray-300">Public Repositories:</span>
+                            <span class="ml-auto text-white font-semibold">21</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-purple-400 mr-2"></i>
+                            <span class="text-gray-300">Followers:</span>
+                            <span class="ml-auto text-white font-semibold">7</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-user-friends text-green-400 mr-2"></i>
+                            <span class="text-gray-300">Following:</span>
+                            <span class="ml-auto text-white font-semibold">24</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Grade Circle -->
+                    <div class="flex justify-center mt-6">
+                        <div class="relative w-20 h-20">
+                            <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                                <circle cx="18" cy="18" r="16" fill="none" stroke="#374151" stroke-width="2"/>
+                                <circle cx="18" cy="18" r="16" fill="none" stroke="#c77dff" stroke-width="2" 
+                                        stroke-dasharray="85, 100" stroke-linecap="round"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-xl font-bold text-white">B+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Most Used Languages -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-cyan mb-4">Most Used Languages</h4>
+                    
+                    <!-- Language Bar -->
+                    <div class="mb-6">
+                        <div class="flex h-2 rounded-full overflow-hidden">
+                            <div style="width: 30%; background: #c77dff;"></div>
+                            <div style="width: 25%; background: #9d4edd;"></div>
+                            <div style="width: 20%; background: #7b2cbf;"></div>
+                            <div style="width: 15%; background: #5a189a;"></div>
+                            <div style="width: 10%; background: #3c096c;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Language Stats -->
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full mr-2" style="background: #c77dff;"></div>
+                            <span class="text-gray-300">C++</span>
+                            <span class="ml-auto text-white">30.0%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full mr-2" style="background: #9d4edd;"></div>
+                            <span class="text-gray-300">Python</span>
+                            <span class="ml-auto text-white">25.0%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full mr-2" style="background: #7b2cbf;"></div>
+                            <span class="text-gray-300">CSS</span>
+                            <span class="ml-auto text-white">20.0%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full mr-2" style="background: #5a189a;"></div>
+                            <span class="text-gray-300">Jupyter Notebook</span>
+                            <span class="ml-auto text-white">15.0%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full mr-2" style="background: #3c096c;"></div>
+                            <span class="text-gray-300">HTML</span>
+                            <span class="ml-auto text-white">10.0%</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Popular Repositories -->
+                    <div class="mt-6">
+                        <h5 class="text-sm font-semibold text-gray-300 mb-3">Popular Repositories:</h5>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-cyan hover:underline cursor-pointer">Programming-Fundamentals</span>
+                                <span class="text-gray-400">Public</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-cyan hover:underline cursor-pointer">University-Admission-Tracker</span>
+                                <span class="text-gray-400">Python</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-cyan hover:underline cursor-pointer">Web-Development</span>
+                                <span class="text-gray-400">CSS</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-cyan hover:underline cursor-pointer">Study-Stack</span>
+                                <span class="text-gray-400">Jupyter Notebook</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View Full GitHub Profile Button -->
+            <div class="text-center mt-8">
+                <a href="https://github.com/breehaqasim" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+                    <i class="fab fa-github mr-2"></i>
+                    View Full GitHub Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Education</h2>
+            <p class="text-gray-400 text-center mb-16">My academic journey and achievements.</p>
+            
+            <div class="space-y-8">
+                <!-- Current Education -->
+                <div class="card rounded-lg p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-cyan">Habib University</h3>
+                            <p class="text-lg text-gray-300">BS in Computer Science</p>
+                            <p class="text-gray-400">CGPA: 3.55 | 80% Merit-Based Scholarship</p>
+                        </div>
+                        <span class="bg-cyan text-black px-3 py-1 rounded-full text-sm font-medium">Aug 2022 - Present</span>
+                    </div>
+                    <div>
+                        <h4 class="text-cyan font-semibold mb-2">Relevant Courses:</h4>
+                        <p class="text-gray-300">Programming Fundamentals, Data Structures & Algorithms, Database Systems, Object Oriented Programming, Computer Architecture, Digital Logic Design, Operating Systems, Graph Data Science, Software Engineering, Data Science, Linear Algebra, Probability & Statistics</p>
+                    </div>
+                </div>
+
+                <!-- A Levels -->
+                <div class="card rounded-lg p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-cyan">Nixor College</h3>
+                            <p class="text-lg text-gray-300">Cambridge International A Levels</p>
+                            <p class="text-gray-400">3 A's – Mathematics, Physics, Computer Science</p>
+                        </div>
+                        <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Sep 2020 - Aug 2022</span>
+                    </div>
+                </div>
+
+                <!-- O Levels -->
+                <div class="card rounded-lg p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-cyan">The City School, Darakshan Campus</h3>
+                            <p class="text-lg text-gray-300">Cambridge International O Levels</p>
+                            <p class="text-gray-400">4 A*s, 3 As, 1 B</p>
+                        </div>
+                        <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Aug 2017 - Dec 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-cyan">Let's Connect!</h2>
+            <p class="text-gray-400 mb-12 text-lg leading-relaxed">I'm currently open to new opportunities and collaborations. Whether you have a project in mind, a question, or just want to say hi, feel free to reach out!</p>
+            
+            <!-- Get in Touch Button -->
+            <div class="mb-16">
+                <a href="mailto:breehaaqasim@gmail.com" class="inline-flex items-center bg-cyan text-black px-8 py-4 rounded-lg font-semibold text-lg transition hover:bg-opacity-90">
+                    <i class="fas fa-envelope mr-3"></i>
+                    Get in Touch
+                </a>
+            </div>
+            
+            <!-- Divider Line -->
+            <div class="border-t border-gray-700 mb-12"></div>
+            
+            <!-- Contact Options -->
+            <p class="text-gray-400 mb-8">Or connect with me directly:</p>
+            
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
+                <a href="https://github.com/breehaqasim" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+                    <i class="fab fa-github mr-2"></i>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/breeha-qasim-a86854213" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+                    <i class="fab fa-linkedin mr-2"></i>
+                    LinkedIn
+                </a>
+                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+                    <i class="fas fa-download mr-2"></i>
+                    Download CV
+                </a>
+            </div>
+            
+            <!-- Email -->
+            <div class="text-center">
+                <p class="text-gray-400">Email: 
+                    <a href="mailto:breehaaqasim@gmail.com" class="text-cyan hover:underline">breehaaqasim@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Modal -->
+    <div id="techStackModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 rounded-lg border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-gray-700">
+                <div class="flex items-center">
+                    <i class="fas fa-code text-cyan text-xl mr-3"></i>
+                    <h3 class="text-xl font-bold text-white">Complete Tech Stack</h3>
+                </div>
+                <span class="text-gray-400 text-sm">< Tools, frameworks, and technologies I work with /></span>
+                <button id="closeModal" class="text-gray-400 hover:text-white transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+                <!-- Category Tabs -->
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <button class="modal-tab-btn text-white px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition active" data-modal-category="all" style="background: #c77dff;">All Technologies</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="languages">Languages</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="frameworks">Frameworks</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="databases">Databases</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="tools">Tools</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="cloud">Cloud</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="other">Other</button>
+                </div>
+                
+                <!-- Technologies Grid -->
+                <div id="modalTechGrid" class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <!-- Technology items will be populated by JavaScript -->
+                </div>
+                
+                <!-- Close Button -->
+                <div class="flex justify-center mt-8">
+                    <button id="closeModalBtn" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-cyan border border-cyan px-6 py-3 rounded-lg transition">
+                        <i class="fas fa-times mr-2"></i>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Network animation
+        function createNetworkNodes() {
+            const container = document.getElementById('networkBg');
+            const nodeCount = 50;
+            
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(node);
+                
+                // Add connections
+                if (i % 3 === 0) {
+                    const connection = document.createElement('div');
+                    connection.className = 'connection';
+                    connection.style.left = Math.random() * 100 + '%';
+                    connection.style.top = Math.random() * 100 + '%';
+                    connection.style.width = Math.random() * 200 + 50 + 'px';
+                    connection.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    connection.style.animationDelay = Math.random() * 3 + 's';
+                    container.appendChild(connection);
+                }
+            }
+        }
+        
+        // GitHub Contribution Grid
+        function createContributionGrid() {
+            const grid = document.getElementById('contributionGrid');
+            if (!grid) return;
+            
+            const weeks = 53;
+            const days = 7;
+            
+            // Create month labels row
+            const monthLabels = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+            
+            // Create day labels
+            const dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+            
+            // Generate contribution pattern similar to the image
+            for (let week = 0; week < weeks; week++) {
+                for (let day = 0; day < days; day++) {
+                    const square = document.createElement('div');
+                    square.className = 'w-3 h-3 rounded-sm';
+                    
+                    // Create contribution intensity pattern
+                    let intensity = 0;
+                    
+                    // More activity in recent months (right side)
+                    if (week > 35) {
+                        intensity = Math.random() * 4;
+                        if (week > 45) intensity = Math.random() * 5; // Even more recent activity
+                    } else if (week > 20) {
+                        intensity = Math.random() * 3;
+                    } else {
+                        intensity = Math.random() * 2;
+                    }
+                    
+                    // Round intensity
+                    intensity = Math.floor(intensity);
+                    
+                    // Apply colors based on intensity
+                    switch (intensity) {
+                        case 0:
+                            square.classList.add('bg-gray-700');
+                            break;
+                        case 1:
+                            square.style.backgroundColor = '#240046';
+                            break;
+                        case 2:
+                            square.style.backgroundColor = '#5a189a';
+                            break;
+                        case 3:
+                            square.style.backgroundColor = '#9d4edd';
+                            break;
+                        case 4:
+                            square.style.backgroundColor = '#c77dff';
+                            break;
+                    }
+                    
+                    grid.appendChild(square);
+                }
+            }
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Initialize
+        createNetworkNodes();
+        createContributionGrid();
+        
+        // View More Projects functionality
+        document.getElementById('viewMoreBtn').addEventListener('click', function() {
+            const moreProjects = document.getElementById('moreProjects');
+            const button = this;
+            
+            if (moreProjects.style.display === 'none') {
+                // Show more projects
+                moreProjects.style.display = 'grid';
+                moreProjects.style.opacity = '0';
+                moreProjects.style.transform = 'translateY(20px)';
+                
+                // Animate in
+                setTimeout(() => {
+                    moreProjects.style.transition = 'all 0.5s ease-in-out';
+                    moreProjects.style.opacity = '1';
+                    moreProjects.style.transform = 'translateY(0)';
+                }, 10);
+                
+                // Update button text
+                button.innerHTML = '<i class="fas fa-chevron-up mr-2"></i>Show Less';
+                button.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                // Hide projects
+                moreProjects.style.transition = 'all 0.5s ease-in-out';
+                moreProjects.style.opacity = '0';
+                moreProjects.style.transform = 'translateY(-20px)';
+                
+                setTimeout(() => {
+                    moreProjects.style.display = 'none';
+                }, 500);
+                
+                // Update button text
+                button.innerHTML = 'View More';
+                
+                // Scroll to projects section
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+        
+        // Skills filtering functionality
+        const skillsData = {
+            backend: [
+                {
+                    name: 'Python',
+                    level: 'Expert',
+                    percentage: 90,
+                    description: 'Primary language used in multiple major projects (GDS Graph, Drone Navigation, Admission Tracker) with significant commit history and complex implementations.',
+                    gradient: 'linear-gradient(to right, #c77dff, #9d4edd)'
+                },
+                {
+                    name: 'Neo4j',
+                    level: 'Certified',
+                    percentage: 95,
+                    description: 'Neo4j Certified Professional - developed bibliographic graph project with GraphML, Cypher queries, and ML predictions using Linear Regression and Random Forest.',
+                    gradient: 'linear-gradient(to right, #c77dff, #5a189a)'
+                },
+                {
+                    name: 'SQL',
+                    level: 'Advanced',
+                    percentage: 85,
+                    description: 'Extensive database design and management experience with MySQL in University Admission Tracker and KVTC DBMS projects.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #3c096c)'
+                },
+                {
+                    name: 'Node.js',
+                    level: 'Intermediate',
+                    percentage: 70,
+                    description: 'Server-side JavaScript development with Express.js, building RESTful APIs and backend services.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #240046)'
+                }
+            ],
+            frontend: [
+                {
+                    name: 'React.js',
+                    level: 'Advanced',
+                    percentage: 80,
+                    description: 'Built responsive skincare platform with Firebase authentication, appointment booking, and modern UI/UX practices.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #5a189a)'
+                },
+                {
+                    name: 'JavaScript',
+                    level: 'Advanced',
+                    percentage: 75,
+                    description: 'Codecademy certified in HTML, CSS, JavaScript - used in web development projects and frontend implementations.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #240046)'
+                },
+                {
+                    name: 'HTML/CSS',
+                    level: 'Expert',
+                    percentage: 90,
+                    description: 'Proficient in modern CSS3, responsive design, Flexbox, Grid, and creating pixel-perfect UI implementations.',
+                    gradient: 'linear-gradient(to right, #c77dff, #9d4edd)'
+                },
+                {
+                    name: 'Tailwind CSS',
+                    level: 'Advanced',
+                    percentage: 80,
+                    description: 'Utility-first CSS framework for rapid UI development with consistent design systems.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #7b2cbf)'
+                }
+            ],
+            mobile: [
+                {
+                    name: 'Flutter',
+                    level: 'Advanced',
+                    percentage: 85,
+                    description: 'Developed Travel Companion app with 350+ users, implementing real-time features and cross-platform compatibility.',
+                    gradient: 'linear-gradient(to right, #c77dff, #7b2cbf)'
+                },
+                {
+                    name: 'Firebase',
+                    level: 'Advanced',
+                    percentage: 80,
+                    description: 'Mobile backend services including authentication, real-time database, cloud functions, and push notifications.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #5a189a)'
+                },
+                {
+                    name: 'Dart',
+                    level: 'Intermediate',
+                    percentage: 75,
+                    description: 'Primary language for Flutter development with strong understanding of async programming and state management.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #3c096c)'
+                }
+            ],
+            systems: [
+                {
+                    name: 'C++',
+                    level: 'Advanced',
+                    percentage: 85,
+                    description: 'Used in Pacman Pursuit game development with SDL2.0 and complex OOP implementations with polymorphic mechanics and optimized performance.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #7b2cbf)'
+                },
+                {
+                    name: 'Verilog/VHDL',
+                    level: 'Intermediate',
+                    percentage: 70,
+                    description: 'Hardware description languages used in FPGA development for Tic Tac Toe game with VGA display implementation.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #240046)'
+                },
+                {
+                    name: 'Operating Systems',
+                    level: 'Advanced',
+                    percentage: 80,
+                    description: 'Deep understanding of OS concepts including scheduling, memory management, concurrency, and file systems.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #5a189a)'
+                }
+            ],
+            cloud: [
+                {
+                    name: 'Firebase',
+                    level: 'Advanced',
+                    percentage: 80,
+                    description: 'Cloud platform for mobile and web applications with authentication, hosting, and serverless functions.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #5a189a)'
+                },
+                {
+                    name: 'Supabase',
+                    level: 'Intermediate',
+                    percentage: 70,
+                    description: 'Open-source Firebase alternative used in KVTC project for database management and storage solutions.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #3c096c)'
+                },
+                {
+                    name: 'Git/GitHub',
+                    level: 'Expert',
+                    percentage: 90,
+                    description: 'Version control and collaborative development with 300+ commits across multiple repositories.',
+                    gradient: 'linear-gradient(to right, #c77dff, #9d4edd)'
+                }
+            ],
+            ai: [
+                {
+                    name: 'Machine Learning',
+                    level: 'Intermediate',
+                    percentage: 75,
+                    description: 'Applied Linear Regression and Random Forest algorithms in Neo4j bibliographic graph project for co-authorship prediction.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #7b2cbf)'
+                },
+                {
+                    name: 'Gemini API',
+                    level: 'Intermediate',
+                    percentage: 70,
+                    description: 'AI integration in GenCLI tool for intelligent file indexing and interactive chat functionality.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #5a189a)'
+                },
+                {
+                    name: 'Data Science',
+                    level: 'Intermediate',
+                    percentage: 65,
+                    description: 'Statistical analysis, data visualization, and predictive modeling using Python libraries like pandas and scikit-learn.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #3c096c)'
+                }
+            ],
+            architecture: [
+                {
+                    name: 'Database Design',
+                    level: 'Advanced',
+                    percentage: 85,
+                    description: 'Expertise in relational and graph database design, normalization, and performance optimization.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #7b2cbf)'
+                },
+                {
+                    name: 'System Design',
+                    level: 'Intermediate',
+                    percentage: 70,
+                    description: 'Understanding of scalable system architecture, microservices, and distributed system principles.',
+                    gradient: 'linear-gradient(to right, #7b2cbf, #5a189a)'
+                },
+                {
+                    name: 'API Design',
+                    level: 'Advanced',
+                    percentage: 80,
+                    description: 'RESTful API development with proper authentication, error handling, and documentation practices.',
+                    gradient: 'linear-gradient(to right, #9d4edd, #5a189a)'
+                }
+            ]
+        };
+        
+        let currentCategory = 'backend';
+        
+        function renderSkills(category) {
+            const container = document.getElementById('skillsContainer');
+            const skills = skillsData[category] || [];
+            
+            container.innerHTML = '';
+            
+            skills.forEach(skill => {
+                const skillElement = document.createElement('div');
+                skillElement.innerHTML = `
+                    <div class="flex justify-between items-center mb-3">
+                        <h5 class="text-lg font-semibold text-white">${skill.name}</h5>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-white px-3 py-1 rounded text-sm" style="background: #7b2cbf;">${skill.level}</span>
+                            <span class="text-gray-400 text-sm">${skill.percentage}%</span>
+                        </div>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-3 mb-2">
+                        <div class="h-3 rounded-full transition-all duration-1000" style="width: ${skill.percentage}%; background: ${skill.gradient};"></div>
+                    </div>
+                    <p class="text-gray-400 text-sm">${skill.description}</p>
+                `;
+                skillElement.style.opacity = '0';
+                skillElement.style.transform = 'translateY(20px)';
+                container.appendChild(skillElement);
+                
+                // Animate in
+                setTimeout(() => {
+                    skillElement.style.transition = 'all 0.5s ease-in-out';
+                    skillElement.style.opacity = '1';
+                    skillElement.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        }
+        
+        function updateCategoryButtons(activeCategory) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                const category = btn.getAttribute('data-category');
+                if (category === activeCategory) {
+                    btn.className = 'category-btn text-black px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition';
+                    btn.style.background = '#c77dff';
+                } else {
+                    btn.className = 'category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600';
+                    btn.style.background = '';
+                }
+            });
+        }
+        
+        // Initialize skills section
+        renderSkills(currentCategory);
+        
+        // Add click handlers for category buttons
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                if (category !== currentCategory) {
+                    currentCategory = category;
+                    updateCategoryButtons(category);
+                    renderSkills(category);
+                }
+            });
+        });
+        
+        // Tech Stack Modal functionality
+        const techStackData = {
+            languages: [
+                { name: 'Python', icon: '<svg class="w-10 h-10" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="a" x1="-133.268" y1="-202.91" x2="-133.198" y2="-202.84" gradientTransform="translate(25243.061 38519.17) scale(189.38 189.81)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#387eb8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="b" x1="-133.575" y1="-203.203" x2="-133.495" y2="-203.133" gradientTransform="translate(25309.061 38583.42) scale(189.38 189.81)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe052"/><stop offset="1" stop-color="#ffc331"/></linearGradient></defs><path d="M15.885,2.1c-7.1,0-6.651,3.07-6.651,3.07V8.36h6.752v1H6.545S2,8.8,2,16.005s4.013,6.912,4.013,6.912H8.33V19.556s-.13-4.013,3.9-4.013h6.762s3.772.06,3.772-3.652V5.8s.572-3.712-6.842-3.712h0ZM12.153,4.237a1.214,1.214,0,1,1-1.183,1.244v-.02a1.214,1.214,0,0,1,1.214-1.214h0Z" style="fill:url(#a)"/><path d="M16.085,29.91c7.1,0,6.651-3.08,6.651-3.08V23.65H15.985v-1h9.47S30,23.158,30,15.995s-4.013-6.912-4.013-6.912H23.64V12.4s.13,4.013-3.9,4.013H12.975S9.2,16.356,9.2,20.068V26.2s-.572,3.712,6.842,3.712h.04Zm3.732-2.147A1.214,1.214,0,1,1,21,26.519v.03a1.214,1.214,0,0,1-1.214,1.214h.03Z" style="fill:url(#b)"/></svg>' },
+                { name: 'C++', icon: '<svg class="w-10 h-10" viewBox="0 0 256 288" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><g><path d="M255.569,84.72 C255.567,79.89 254.534,75.622 252.445,71.959 C250.393,68.357 247.32,65.338 243.198,62.951 C209.173,43.332 175.115,23.773 141.101,4.134 C131.931,-1.16 123.04,-0.967 113.938,4.403 C100.395,12.39 32.59,51.237 12.385,62.94 C4.064,67.757 0.015,75.129 0.013,84.711 C0,124.166 0.013,163.62 0,203.076 C0.002,207.8 0.991,211.985 2.988,215.593 C5.041,219.304 8.157,222.406 12.374,224.847 C32.58,236.55 100.394,275.394 113.934,283.383 C123.04,288.756 131.931,288.948 141.104,283.652 C175.119,264.012 209.179,244.454 243.209,224.835 C247.426,222.395 250.542,219.291 252.595,215.583 C254.589,211.975 255.58,207.79 255.582,203.065 C255.582,203.065 255.582,124.176 255.569,84.72" fill="#5C8DBC"></path><path d="M128.182,143.509 L2.988,215.593 C5.041,219.304 8.157,222.406 12.374,224.847 C32.58,236.55 100.394,275.394 113.934,283.383 C123.04,288.756 131.931,288.948 141.104,283.652 C175.119,264.012 209.179,244.454 243.209,224.835 C247.426,222.395 250.542,219.291 252.595,215.583 L128.182,143.509" fill="#1A4674"></path><path d="M91.101,164.861 C98.386,177.579 112.081,186.157 127.791,186.157 C143.598,186.157 157.371,177.47 164.619,164.616 L128.182,143.509 L91.101,164.861" fill="#1A4674"></path><path d="M255.569,84.72 C255.567,79.89 254.534,75.622 252.445,71.959 L128.182,143.509 L252.595,215.583 C254.589,211.975 255.58,207.79 255.582,203.065 C255.582,203.065 255.582,124.176 255.569,84.72" fill="#1B598E"></path><path d="M248.728,148.661 L239.006,148.661 L239.006,158.385 L229.282,158.385 L229.282,148.661 L219.561,148.661 L219.561,138.94 L229.282,138.94 L229.282,129.218 L239.006,129.218 L239.006,138.94 L248.728,138.94 L248.728,148.661" fill="#FFFFFF"></path><path d="M213.253,148.661 L203.532,148.661 L203.532,158.385 L193.81,158.385 L193.81,148.661 L184.088,148.661 L184.088,138.94 L193.81,138.94 L193.81,129.218 L203.532,129.218 L203.532,138.94 L213.253,138.94 L213.253,148.661" fill="#FFFFFF"></path><path d="M164.619,164.616 C157.371,177.47 143.598,186.157 127.791,186.157 C112.081,186.157 98.386,177.579 91.101,164.861 C87.562,158.681 85.527,151.526 85.527,143.893 C85.527,120.552 104.45,101.63 127.791,101.63 C143.4,101.63 157.023,110.101 164.344,122.689 L201.285,101.417 C186.602,76.071 159.189,59.019 127.791,59.019 C80.915,59.019 42.916,97.019 42.916,143.893 C42.916,159.271 47.007,173.692 54.157,186.131 C68.803,211.611 96.294,228.768 127.791,228.768 C159.346,228.768 186.88,211.542 201.505,185.987 L164.619,164.616" fill="#FFFFFF"></path></g></svg>' },
+                { name: 'C', icon: '<svg class="w-10 h-10" viewBox="0 0 188.35 208.20" xmlns="http://www.w3.org/2000/svg"><path d="M92.01 117.58c-0.73-0.19-1.74-0.56-2.25-0.82-1.19-0.62-27.65-15.43-39.03-21.84-3.23-1.82-7.76-4.36-31.62-17.73-7.35-4.12-13.99-7.95-14.76-8.52-0.77-0.57-1.80-1.65-2.30-2.41-1.87-2.85-1.74 1.04-1.67-53.25l0.07-48.94 0.85-1.79c0.51-1.08 1.36-2.29 2.14-3.04 1.27-1.23 2.33-1.84 45.30-25.88 3.42-1.91 11.69-6.55 18.39-10.31 20.88-11.71 22.45-12.57 23.94-13.03 1.86-0.57 5.27-0.56 6.90 0.02 1.32 0.47 1.26 0.44 12.81 6.91 8.90 4.99 23.76 13.28 37.44 20.91 5.02 2.80 13.18 7.35 18.12 10.11 4.95 2.76 10.90 6.08 13.23 7.38 4.43 2.46 6.92 4.49 7.94 6.46 1.22 2.36 1.18 0.76 1.19 51.88 0.00 43.67-0.04 48.44-0.42 49.74-0.49 1.65-1.90 3.90-3.06 4.87-1.03 0.87 0.44 0.03-34.88 19.85-16.81 9.43-35.02 19.65-40.48 22.72-5.46 3.07-10.59 5.84-11.40 6.17-1.85 0.75-4.69 0.98-6.46 0.52z" fill="#5C6BC0"/><path d="M103.00 82.65c12.77-1.51 24.73-6.59 35.17-14.92 3.26-2.60 7.64-6.94 10.17-10.07 1.70-2.11 6.52-9.12 6.52-9.48 0-0.21-29.98-16.71-30.32-16.69-0.13 0.01-0.78 0.86-1.43 1.90-1.62 2.56-6.21 7.14-9.00 8.98-12.30 8.10-26.90 8.09-39.16 0-2.71-1.79-6.80-5.79-8.71-8.51-7.78-11.09-8.45-25.66-1.70-37.45 4.89-8.54 13.25-14.53 23.29-16.68 2.74-0.59 9.04-0.71 12.00-0.24 8.03 1.28 15.75 5.53 20.81 11.47 0.95 1.11 2.10 2.59 2.55 3.29 0.53 0.81 0.97 1.23 1.23 1.17 0.36-0.09 29.61-16.74 29.87-16.99 0.16-0.16-2.78-4.55-4.95-7.40-2.30-3.01-7.94-8.80-10.88-11.15-10.57-8.47-22.60-13.54-36.12-15.20-3.41-0.42-12.20-0.42-15.61 0-13.17 1.62-24.74 6.40-35.32 14.59-3.03 2.35-8.49 7.74-10.95 10.83-7.97 9.99-13.04 21.85-14.87 34.79-0.61 4.33-0.62 13.10-0.01 17.59 3.18 23.38 17.46 43.29 38.40 53.58 12.25 6.02 25.30 8.22 39.03 6.59z" fill="#FFFFFF"/></svg>' },
+                { name: 'JavaScript', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#F7DF1E"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>' },
+                { name: 'HTML', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#E34F26"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>' },
+                { name: 'CSS', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#1572B6"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>' },
+                { name: 'SQL', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#336791"><path d="M12 0C5.374 0 0 3.582 0 8v8c0 4.418 5.374 8 12 8s12-3.582 12-8V8c0-4.418-5.374-8-12-8zm0 2c5.523 0 10 2.686 10 6s-4.477 6-10 6S2 11.314 2 8s4.477-6 10-6zm0 12c5.523 0 10 2.686 10 6s-4.477 6-10 6S2 19.314 2 16s4.477-6 10-6z"/></svg>' },
+               
+            ],
+            frameworks: [
+                { name: 'React.js', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#61DAFB"><path d="M12 10.11c1.03 0 1.87.84 1.87 1.89s-.84 1.89-1.87 1.89c-1.03 0-1.87-.84-1.87-1.89s.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.52.59 1.03 1.23 1.51 1.9.82.08 1.63.2 2.4.36.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63 2.54.75 4.37 1.99 4.37 3.68s-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63-1.46.84-3.45-.12-5.37-1.95-1.92 1.83-3.91 2.79-5.37 1.95-1.47-.84-1.63-3.05-1.01-5.63-2.54-.75-4.37-1.99-4.37-3.68s1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1.01-5.63 1.46-.84 3.45.12 5.37 1.95 1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26 2.1-.63 3.28-1.53 3.28-2.26S20.07 10.37 17.97 9.74c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26-2.1.63-3.28 1.53-3.28 2.26s1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26M6.92 9.74c.54-2.26.97-4.22.97-5.69 0-.85-.07-1.53-.22-2.04-.73.15-1.25.78-1.25 1.79 0 1.24.51 2.73.5 5.94z"/></svg>' },
+                { name: 'Firebase', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#FFCA28"><path d="M5.821 10.042c-.294.522-.294 1.166 0 1.688l6.179 11.014 6.179-11.014c.294-.522.294-1.166 0-1.688L12 0 5.821 10.042z"/><path d="M12 14.315L5.821 3.301c-.588-1.046-2.123-.948-2.579.164L.314 9.696c-.294.522-.294 1.166 0 1.688L12 23.757V14.315z" fill="#FFA000"/><path d="M12 14.315l6.179-11.014c.588-1.046 2.123-.948 2.579.164l2.928 6.231c.294.522.294 1.166 0 1.688L12 23.757V14.315z" fill="#FF8F00"/><path d="M12 14.315L5.821 3.301c-.588-1.046-2.123-.948-2.579.164L.314 9.696c-.294.522-.294 1.166 0 1.688L12 23.757V14.315z" fill="#FF6F00"/></svg>' },
+                { name: 'Verilog', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#ff6600"><path d="M12 0L2 6v12l10 6 10-6V6L12 0zm0 2.2l8 4.8v9.6l-8 4.8-8-4.8V7L12 2.2z"/><rect x="10" y="7" width="4" height="10" fill="#ff6600"/><rect x="7" y="10" width="10" height="4" fill="#ff6600"/></svg>' },
+                { name: 'SDL2.0', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#0080ff"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>' }
+            ],
+            databases: [
+                { name: 'MongoDB', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#47A248"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg>' },
+                { name: 'Neo4j', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#008CC1"><circle cx="12" cy="12" r="10" stroke="#008CC1" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="3" fill="#008CC1"/><circle cx="6" cy="12" r="2" fill="#008CC1"/><circle cx="18" cy="12" r="2" fill="#008CC1"/><circle cx="12" cy="6" r="2" fill="#008CC1"/><circle cx="12" cy="18" r="2" fill="#008CC1"/></svg>' },
+                { name: 'MySQL', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#4479A1"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H.007c.103-1.86.32-3.734.68-5.556H1.8l1.4 4.19h.01l1.41-4.19h1.1c.4 1.857.617 3.731.72 5.556zm3.036.007h-.927c-.235-1.825-.453-3.699-.856-5.556h.927c.4 1.857.618 3.731.856 5.556zm2.043-4.026a18.082 18.082 0 00-.407-1.53h.84c.128.485.249.971.407 1.53zm.706 4.026c.548-1.97.997-3.993 1.645-5.556h.927c-.648 1.563-1.097 3.586-1.645 5.556h-.927zm7.133-.007h-.927c-.235-1.825-.453-3.699-.856-5.556h.927c.4 1.857.618 3.731.856 5.556z"/></svg>' }
+            ],
+            tools: [
+                { name: 'Git', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#F05032"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>' },
+                { name: 'Figma', icon: '<svg class="w-10 h-10" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="#1ABCFE" d="M8.55 8c0-1.289 1.019-2.333 2.275-2.333C12.082 5.667 13.1 6.71 13.1 8c0 1.289-1.018 2.333-2.275 2.333C9.57 10.333 8.55 9.29 8.55 8z"/><path fill="#0ACF83" d="M4 12.667c0-1.289 1.019-2.334 2.275-2.334H8.55v2.334C8.55 13.955 7.531 15 6.275 15S4 13.955 4 12.667z"/><path fill="#FF7262" d="M8.55 1v4.667h2.275c1.257 0 2.275-1.045 2.275-2.334C13.1 2.045 12.082 1 10.825 1H8.55z"/><path fill="#F24E1E" d="M4 3.333c0 1.289 1.019 2.334 2.275 2.334H8.55V1H6.275C5.019 1 4 2.045 4 3.333z"/><path fill="#A259FF" d="M4 8c0 1.289 1.019 2.333 2.275 2.333H8.55V5.667H6.275C5.019 5.667 4 6.71 4 8z"/></svg>' },
+                { name: 'Qt Designer', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#41CD52"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 3h3v3h-3V3zm-3 3h3v3h-3V6zm-3 3h3v3h-3V9zm0 3h3v3h-3v-3zm0 3h3v3h-3v-3zm3 3h3v3h-3v-3zm3 0h3v3h-3v-3zm3-3h3v3h-3v-3zm0-3h3v3h-3V9zm0-3h3v3h-3V6z"/></svg>' },
+                { name: 'DB Designer', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#336791"><ellipse cx="12" cy="6" rx="10" ry="4" fill="#336791"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#336791" stroke-width="2"/><ellipse cx="12" cy="18" rx="10" ry="4" fill="none" stroke="#336791" stroke-width="2"/><path d="M2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6" fill="none" stroke="#336791" stroke-width="2"/></svg>' },
+                { name: 'Canva', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#00C4CC"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.987 11.987s11.987-5.367 11.987-11.987C24.003 5.367 18.637.001 12.017.001zM8.232 10.178c0-.958.777-1.735 1.735-1.735.958 0 1.735.777 1.735 1.735s-.777 1.735-1.735 1.735c-.958 0-1.735-.777-1.735-1.735zm7.536 0c0-.958.777-1.735 1.735-1.735.958 0 1.735.777 1.735 1.735s-.777 1.735-1.735 1.735c-.958 0-1.735-.777-1.735-1.735z"/></svg>' },
+                { name: 'OOP', icon: '<svg class="w-10 h-10" viewBox="0 0 24 24" fill="#007ACC"><rect x="2" y="2" width="6" height="6" rx="1" fill="#007ACC"/><rect x="2" y="16" width="6" height="6" rx="1" fill="#007ACC"/><rect x="16" y="2" width="6" height="6" rx="1" fill="#007ACC"/><rect x="16" y="16" width="6" height="6" rx="1" fill="#007ACC"/><circle cx="12" cy="12" r="3" fill="#007ACC"/><path d="M8 5h8M8 19h8M5 8v8M19 8v8" stroke="#007ACC" stroke-width="1.5"/></svg>' }
+            ]
+        };
+        
+        // Function to get all technologies combined
+        function getAllTechnologies() {
+            const all = [];
+            Object.keys(techStackData).forEach(category => {
+                techStackData[category].forEach(tech => {
+                    if (!all.find(t => t.name === tech.name)) {
+                        all.push(tech);
+                    }
+                });
+            });
+            return all;
+        }
+        
+        // Function to render modal technologies
+        function renderModalTechnologies(category = 'all') {
+            const container = document.getElementById('modalTechGrid');
+            const technologies = category === 'all' ? getAllTechnologies() : (techStackData[category] || []);
+            
+            container.innerHTML = '';
+            
+            technologies.forEach(tech => {
+                const techElement = document.createElement('div');
+                techElement.className = 'bg-gray-800 border border-gray-700 rounded-lg p-4 text-center hover:border-cyan transition-all duration-300 transform hover:scale-105';
+                techElement.innerHTML = `
+                    <div class="flex justify-center mb-3">
+                        ${tech.icon}
+                    </div>
+                    <h4 class="text-white font-semibold text-sm">${tech.name}</h4>
+                `;
+                container.appendChild(techElement);
+            });
+        }
+        
+        // Function to update modal category buttons
+        function updateModalCategoryButtons(activeCategory) {
+            document.querySelectorAll('.modal-tab-btn').forEach(btn => {
+                const category = btn.getAttribute('data-modal-category');
+                if (category === activeCategory) {
+                    btn.className = 'modal-tab-btn text-white px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition active';
+                    btn.style.background = '#c77dff';
+                } else {
+                    btn.className = 'modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600';
+                    btn.style.background = '';
+                }
+            });
+        }
+        
+        // Modal functionality
+        const modal = document.getElementById('techStackModal');
+        const openBtn = document.getElementById('techStackBtn');
+        const closeBtn = document.getElementById('closeModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        
+        // Open modal
+        openBtn.addEventListener('click', function() {
+            modal.classList.remove('hidden');
+            renderModalTechnologies('all');
+            updateModalCategoryButtons('all');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close modal functions
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        closeBtn.addEventListener('click', closeModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+        
+        // Modal category button functionality
+        document.querySelectorAll('.modal-tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-modal-category');
+                updateModalCategoryButtons(category);
+                renderModalTechnologies(category);
+            });
+        });
+    </script>
+</body>
+</html> 
