@@ -39,30 +39,32 @@
 
         /* Mobile-first responsive typography */
         .hero-title {
-            font-size: 2.5rem;
-            line-height: 1.1;
+            font-size: 2.25rem;
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
+            line-height: 1.2;
         }
 
-        /* Mobile breakpoints */
+        /* Responsive breakpoints */
         @media (min-width: 640px) {
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
             
             .hero-subtitle {
-                font-size: 1.125rem;
+                font-size: 1.1rem;
             }
             
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
             }
         }
 
@@ -76,13 +78,13 @@
             }
             
             .section-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
         }
 
         @media (min-width: 1024px) {
             .hero-title {
-                font-size: 6rem;
+                font-size: 5rem;
             }
             
             .hero-subtitle {
@@ -90,24 +92,35 @@
             }
             
             .section-title {
-                font-size: 4rem;
+                font-size: 3rem;
             }
         }
 
-        /* Mobile navigation smoothing */
-        @media (max-width: 767px) {
-            .mobile-nav-spacing {
-                padding: 1rem;
+        /* Mobile optimizations */
+        @media (max-width: 639px) {
+            body {
+                font-size: 14px;
             }
             
-            .mobile-text-adjust {
-                font-size: 0.875rem;
+            .mobile-padding {
+                padding: 0.75rem;
             }
             
-            .mobile-button-adjust {
-                padding: 0.75rem 1rem;
+            .mobile-text {
                 font-size: 0.875rem;
+                line-height: 1.5;
             }
+            
+            .mobile-text-small {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* Ensure proper viewport sizing */
+        .min-h-screen {
+            min-height: 100vh;
+            min-height: 100dvh; /* Dynamic viewport height for mobile */
         }
     </style>
 </head>
@@ -161,29 +174,29 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative px-4">
-        <div class="text-center z-10 max-w-4xl mx-auto">
-            <h1 class="hero-title font-bold mb-4">
+    <section id="home" class="min-h-screen flex items-center justify-center relative px-4 pt-20">
+        <div class="text-center z-10 max-w-4xl mx-auto w-full">
+            <h1 class="hero-title font-bold mb-6">
                 Hello 👋, I'm<br>
                 <span class="gradient-text">Breeha Qasim</span>
             </h1>
-            <p class="hero-subtitle text-gray-400 mb-8 md:mb-12 px-2">Exploring AI & Data Science | Open for Full Stack Development Projects</p>
+            <p class="hero-subtitle text-gray-400 mb-8 px-2 max-w-2xl mx-auto">Exploring AI & Data Science | Open for Full Stack Development Projects</p>
             
-            <div class="mb-6 md:mb-8">
-                <h3 class="text-cyan text-base md:text-lg mb-4">● About Me</h3>
-                <p class="text-gray-300 max-w-2xl mx-auto text-sm md:text-base px-4 leading-relaxed">
+            <div class="mb-8">
+                <h3 class="text-cyan text-base mb-4">● About Me</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm leading-relaxed px-2">
                     A fresh Computer Science graduate from Habib University (80% Merit Scholar) eager to kickstart my career in technology. As a recent graduate, I'm passionate about exploring emerging fields like Artificial Intelligence and Data Science while building strong foundations in full-stack development. Through academic projects and internships, I've gained hands-on experience with modern technologies including React.js, Neo4j, Python, and database systems. I'm excited to apply my learning to real-world challenges and contribute to innovative projects as I begin my professional journey.
                 </p>
             </div>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 px-4">
-                <button onclick="location.href='#projects'" class="mobile-button-adjust md:px-6 md:py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
+            <div class="flex flex-col space-y-3 max-w-sm mx-auto">
+                <button onclick="location.href='#projects'" class="w-full px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition text-sm">
                     View Projects →
                 </button>
-                <button onclick="location.href='#contact'" class="mobile-button-adjust md:px-6 md:py-3 text-white rounded-lg hover:opacity-90 transition" style="background: linear-gradient(45deg, #c77dff, #9d4edd);">
+                <button onclick="location.href='#contact'" class="w-full px-6 py-3 text-white rounded-lg hover:opacity-90 transition text-sm" style="background: linear-gradient(45deg, #c77dff, #9d4edd);">
                     Contact Me
                 </button>
-                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="mobile-button-adjust md:px-6 md:py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition flex items-center justify-center">
+                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="w-full px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition flex items-center justify-center text-sm">
                     <i class="fas fa-file-alt mr-2"></i> Resume
                 </a>
             </div>
@@ -194,17 +207,87 @@
     <section id="experience" class="py-12 md:py-20">
         <div class="max-w-6xl mx-auto px-4 md:px-6">
             <h2 class="section-title font-bold text-center mb-4">Professional Experience</h2>
-            <p class="text-gray-400 text-center mb-12 md:mb-16 mobile-text-adjust md:text-base">My professional journey and key accomplishments.</p>
+            <p class="text-gray-400 text-center mb-8 mobile-text">My professional journey and key accomplishments.</p>
             
             <div class="flex items-center justify-center mb-6 md:mb-8">
-                <div class="bg-gray-700 px-3 md:px-4 py-2 rounded-full mobile-text-adjust md:text-sm">
+                <div class="bg-gray-700 px-3 py-2 rounded-full text-xs mobile-text">
                     <i class="fas fa-code-branch text-cyan mr-2"></i>20+ repositories • 300+ commits
                 </div>
             </div>
             
-            <div class="relative max-w-5xl mx-auto">
-                <!-- Centered vertical timeline line - hidden on mobile -->
-                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full" style="background: linear-gradient(to bottom, #c77dff, #9d4edd);"></div>
+            <!-- Mobile Timeline (Single Column) -->
+            <div class="md:hidden space-y-8">
+                <!-- Experience 1 -->
+                <div class="card rounded-lg p-4">
+                    <div class="flex flex-col space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-cyan font-semibold text-base">Full Stack Development Intern</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded-full">May 2025 - Present</span>
+                        </div>
+                        <h3 class="text-lg font-bold">Karachi Vocational Training Centre (KVTC) - Khidmat Project</h3>
+                        <h4 class="text-cyan font-semibold text-sm">Key Achievements</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-start">
+                                <span class="text-cyan mr-2 mt-1 text-xs">→</span>
+                                <span>Developing a custom DBMS with responsive frontend to digitize, organize, and manage student records.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-cyan mr-2 mt-1 text-xs">→</span>
+                                <span>Scraped and organized institutional data, maintaining Google Sheets for data tracking.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-cyan mr-2 mt-1 text-xs">→</span>
+                                <span>Designed database architecture using Supabase with efficient data management.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-cyan mr-2 mt-1 text-xs">→</span>
+                                <span>Created UI/UX prototypes in Figma and developed dual-dashboard system for Admin and Staff users.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="card rounded-lg p-4">
+                    <div class="flex flex-col space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-cyan font-semibold text-base">Lab Curriculum Developer</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded-full">June 2025 - Present</span>
+                        </div>
+                        <h3 class="text-lg font-bold">Habib University - Operating Systems Course</h3>
+                        <h4 class="text-cyan font-semibold text-sm">Key Achievements</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-start">
+                                <span class="text-cyan mr-2 mt-1 text-xs">→</span>
+                                <span>Under Dr. Bilal Wajid's supervision, designing 15 immersive OS lab sessions for CS/CE students.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="card rounded-lg p-4">
+                    <div class="flex flex-col space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-cyan font-semibold text-base">Teacher Assistant</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded-full">Jan 2020 - Sept 2020</span>
+                        </div>
+                        <h3 class="text-lg font-bold">Unplugged Science with Anila</h3>
+                        <h4 class="text-cyan font-semibold text-sm">Key Achievements</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-start">
+                                <span class="text-cyan mr-2 mt-1 text-xs">→</span>
+                                <span>Taught O-Level Chemistry over Zoom and designed practice worksheets.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop Timeline (Two Column) -->
+            <div class="hidden md:block relative max-w-5xl mx-auto">
+                <!-- Centered vertical timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full" style="background: linear-gradient(to bottom, #c77dff, #9d4edd);"></div>
                 
                 <!-- Experience 1 - Right side -->
                 <div class="relative mb-12">
