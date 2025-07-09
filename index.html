@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breeha Qasim Portfolio</title>
+    <title>LiveInsight - Breeha Qasim Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -68,6 +68,43 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Mobile Typography */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem !important;
+            }
+            
+            .section-title {
+                font-size: 2rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+            
+            .node {
+                width: 2px;
+                height: 2px;
+            }
+        }
     </style>
 </head>
 <body class="bg-dark text-white overflow-x-hidden">
@@ -75,9 +112,11 @@
     <div class="network-bg" id="networkBg"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 p-6">
+    <nav class="fixed top-0 w-full z-50 p-4 md:p-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold text-cyan">bree</div>
+            <div class="text-xl md:text-2xl font-bold text-cyan">LiveInsight</div>
+            
+            <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="hover:text-cyan transition">Home</a>
                 <a href="#projects" class="hover:text-cyan transition">Projects</a>
@@ -86,40 +125,61 @@
                 <a href="#education" class="hover:text-cyan transition">Education</a>
                 <a href="#contact" class="hover:text-cyan transition">Contact</a>
             </div>
-            <!-- <div class="flex items-center space-x-4">
-                <i class="fas fa-file-alt text-cyan"></i>
-                <i class="fas fa-sparkles text-cyan"></i>
-            </div> -->
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-cyan">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-gray-900 md:hidden z-50 shadow-lg">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <div class="text-xl font-bold text-cyan">Menu</div>
+                    <button id="closeMobileMenu" class="text-cyan">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <a href="#home" class="block hover:text-cyan transition mobile-nav-link">Home</a>
+                    <a href="#projects" class="block hover:text-cyan transition mobile-nav-link">Projects</a>
+                    <a href="#tech" class="block hover:text-cyan transition mobile-nav-link">Tech Stack</a>
+                    <a href="#experience" class="block hover:text-cyan transition mobile-nav-link">Experience</a>
+                    <a href="#education" class="block hover:text-cyan transition mobile-nav-link">Education</a>
+                    <a href="#contact" class="block hover:text-cyan transition mobile-nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative">
-        <div class="text-center z-10">
-            <!-- <div class="inline-block bg-cyan text-black px-4 py-2 rounded-full text-sm font-medium mb-8">
-                Full Stack Developer
-            </div> -->
-            <h1 class="text-6xl font-bold mb-4">
+    <section id="home" class="min-h-screen flex items-center justify-center relative px-4">
+        <div class="text-center z-10 max-w-4xl mx-auto">
+            <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4">
                 Hello 👋, I'm<br>
                 <span class="gradient-text">Breeha Qasim</span>
             </h1>
-            <p class="text-gray-400 text-xl mb-12">Exploring AI & Data Science | Open for Full Stack Development Projects</p>
+            <p class="hero-subtitle text-gray-400 text-lg md:text-xl mb-8 md:mb-12 px-4">Exploring AI & Data Science | Open for Full Stack Development Projects</p>
             
-            <div class="mb-8">
-                <h3 class="text-cyan text-lg mb-4">● About Me</h3>
-                <p class="text-gray-300 max-w-2xl mx-auto">
+            <div class="mb-6 md:mb-8">
+                <h3 class="text-cyan text-base md:text-lg mb-4">● About Me</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm md:text-base px-4">
                     A fresh Computer Science graduate from Habib University (80% Merit Scholar) eager to kickstart my career in technology. As a recent graduate, I'm passionate about exploring emerging fields like Artificial Intelligence and Data Science while building strong foundations in full-stack development. Through academic projects and internships, I've gained hands-on experience with modern technologies including React.js, Neo4j, Python, and database systems. I'm excited to apply my learning to real-world challenges and contribute to innovative projects as I begin my professional journey.
                 </p>
             </div>
             
-            <div class="flex justify-center space-x-4">
-                <button onclick="location.href='#projects'" class="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition">
+            <div class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 px-4">
+                <button onclick="location.href='#projects'" class="bg-gray-700 text-white px-4 md:px-6 py-3 rounded-lg hover:bg-gray-600 transition text-sm md:text-base">
                     View Projects →
                 </button>
-                <button onclick="location.href='#contact'" class="text-white px-6 py-3 rounded-lg hover:opacity-90 transition" style="background: linear-gradient(45deg, #c77dff, #9d4edd);">
+                <button onclick="location.href='#contact'" class="text-white px-4 md:px-6 py-3 rounded-lg hover:opacity-90 transition text-sm md:text-base" style="background: linear-gradient(45deg, #c77dff, #9d4edd);">
                     Contact Me
                 </button>
-                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition flex items-center">
+                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="bg-gray-700 text-white px-4 md:px-6 py-3 rounded-lg hover:bg-gray-600 transition flex items-center justify-center text-sm md:text-base">
                     <i class="fas fa-file-alt mr-2"></i> Resume
                 </a>
             </div>
@@ -127,18 +187,88 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-4">Professional Experience</h2>
-            <p class="text-gray-400 text-center mb-16">My professional journey and key accomplishments.</p>
+    <section id="experience" class="py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">Professional Experience</h2>
+            <p class="text-gray-400 text-center mb-12 md:mb-16 text-sm md:text-base">My professional journey and key accomplishments.</p>
             
-            <div class="flex items-center justify-center mb-8">
-                <div class="bg-gray-700 px-4 py-2 rounded-full text-sm">
+            <div class="flex items-center justify-center mb-6 md:mb-8">
+                <div class="bg-gray-700 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm">
                     <i class="fas fa-code-branch text-cyan mr-2"></i>20+ repositories • 300+ commits
                 </div>
             </div>
             
-            <div class="relative max-w-5xl mx-auto">
+            <!-- Mobile Timeline -->
+            <div class="block md:hidden space-y-8">
+                <!-- Experience 1 -->
+                <div class="card rounded-lg p-4">
+                    <div class="flex flex-col mb-3">
+                        <span class="text-cyan font-semibold text-base">Full Stack Development Intern</span>
+                        <span class="bg-gray-700 text-xs px-2 py-1 rounded-full self-start mt-2">
+                            May 2025 - Present
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Karachi Vocational Training Centre (KVTC) - Khidmat Project</h3>
+                    <h4 class="text-cyan mb-3 font-semibold text-sm">Key Achievements</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li class="flex items-start">
+                            <span class="text-cyan mr-2 mt-1">→</span>
+                            <span>Developing a custom DBMS with responsive frontend to digitize, organize, and manage student records, streamlining CRUD operations and data retrieval.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cyan mr-2 mt-1">→</span>
+                            <span>Scraped and organized institutional data from OneDrive, maintaining Google Sheets for data tracking and gap analysis.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cyan mr-2 mt-1">→</span>
+                            <span>Designed database architecture using Supabase, creating tables and storage buckets for efficient data management.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cyan mr-2 mt-1">→</span>
+                            <span>Created UI/UX prototypes in Figma with supervisor approval workflow, then developed dual-dashboard system for Admin and Staff users with role-specific functionalities.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="card rounded-lg p-4">
+                    <div class="flex flex-col mb-3">
+                        <span class="text-cyan font-semibold text-base">Lab Curriculum Developer</span>
+                        <span class="bg-gray-700 text-xs px-2 py-1 rounded-full self-start mt-2">
+                            June 2025 - Present
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Habib University - Operating Systems Course</h3>
+                    <h4 class="text-cyan mb-3 font-semibold text-sm">Key Achievements</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li class="flex items-start">
+                            <span class="text-cyan mr-2 mt-1">→</span>
+                            <span>Under the supervision of Dr. Bilal Wajid, designing and piloting 15 immersive OS lab sessions—focused on scheduling, memory, concurrency, and persistence—to enhance conceptual clarity and establish a scalable hands-on curriculum for CS/CE students.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="card rounded-lg p-4">
+                    <div class="flex flex-col mb-3">
+                        <span class="text-cyan font-semibold text-base">Teacher Assistant</span>
+                        <span class="bg-gray-700 text-xs px-2 py-1 rounded-full self-start mt-2">
+                            Jan 2020 - Sept 2020
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Unplugged Science with Anila</h3>
+                    <h4 class="text-cyan mb-3 font-semibold text-sm">Key Achievements</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li class="flex items-start">
+                            <span class="text-cyan mr-2 mt-1">→</span>
+                            <span>Taught O-Level Chemistry over Zoom, prepared notes, and designed practice worksheets.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Desktop Timeline -->
+            <div class="hidden md:block relative max-w-5xl mx-auto">
                 <!-- Centered vertical timeline line -->
                 <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full" style="background: linear-gradient(to bottom, #c77dff, #9d4edd);"></div>
                 
@@ -227,14 +357,12 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-4">Projects</h2>
-            <p class="text-gray-400 text-center mb-12">Showcasing my work spanning web applications, graph databases, and innovative solutions.</p>
+    <section id="projects" class="py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">Projects</h2>
+            <p class="text-gray-400 text-center mb-8 md:mb-12 text-sm md:text-base">Showcasing my work spanning web applications, graph databases, and innovative solutions.</p>
             
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-            
-
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                 <!-- Project 2 - Skincare Platform -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
                     <!-- Project Thumbnail -->
@@ -272,19 +400,6 @@
                 <!-- Project 6 - Pacman Pursuit -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
                     <!-- Project Thumbnail -->
-                    <!-- <div class="h-48 bg-gradient-to-br from-yellow-900 to-orange-800 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="text-center">
-                                <i class="fas fa-gamepad text-6xl text-yellow-300 mb-4"></i>
-                                <div class="bg-black bg-opacity-80 rounded-lg p-4 backdrop-blur-sm">
-                                    <div class="text-yellow-400 text-lg mb-2">👾 PACMAN PURSUIT</div>
-                                    <div class="text-green-400 text-sm">🟢 ● ● ● ● ●</div>
-                                    <div class="text-red-400 text-sm">👻 Enemy AI</div>
-                                    <div class="text-cyan text-sm">⚡ Real-time Physics</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="h-48 relative overflow-hidden">
                         <img src="Project 2.jpg" alt="Skincare Platform Screenshot" class="w-full h-full object-cover">
                         <span class="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full text-white bg-black bg-opacity-70" style="border: 1px solid #c77dff;">Featured</span>
@@ -319,28 +434,6 @@
                 <!-- Project 5 - University Admission Tracker -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
                     <!-- Project Thumbnail -->
-                    <!-- <div class="h-48 bg-gradient-to-br from-indigo-900 to-blue-800 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="text-center">
-                                <i class="fas fa-graduation-cap text-6xl text-indigo-300 mb-4"></i>
-                                <div class="bg-white bg-opacity-90 rounded-lg p-4 text-gray-800 shadow-lg">
-                                    <div class="text-sm font-semibold mb-2">🎓 University Tracker</div>
-                                    <div class="text-xs flex items-center justify-between mb-1">
-                                        <span>Applications:</span>
-                                        <span class="text-green-600 font-bold">12</span>
-                                    </div>
-                                    <div class="text-xs flex items-center justify-between mb-1">
-                                        <span>Accepted:</span>
-                                        <span class="text-blue-600 font-bold">3</span>
-                                    </div>
-                                    <div class="text-xs flex items-center justify-between">
-                                        <span>Pending:</span>
-                                        <span class="text-orange-600 font-bold">5</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="h-48 relative overflow-hidden">
                         <img src="Project 3.png" alt="Skincare Platform Screenshot" class="w-full h-full object-cover">
                         <span class="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full text-white bg-black bg-opacity-70" style="border: 1px solid #c77dff;">Featured</span>
@@ -420,7 +513,7 @@
             </div>
             
             <!-- Hidden Projects (initially hidden) -->
-            <div id="moreProjects" class="grid md:grid-cols-2 gap-6 mb-8" style="display: none;">
+            <div id="moreProjects" class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8" style="display: none;">
 
 
                 <!-- Project 4 - Tic Tac Toe FPGA -->
@@ -521,7 +614,7 @@
             
             <!-- Show More Projects Button -->
             <div class="text-center">
-                <button id="viewMoreBtn" class="px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-lg text-white transition">
+                <button id="viewMoreBtn" class="px-4 md:px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-lg text-white transition text-sm md:text-base">
                     View More
                 </button>
             </div>
@@ -529,45 +622,37 @@
     </section>
 
     <!-- Tech Stack Section -->
-    <section id="tech" class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-4">🧑‍💻 Tech Stack —</h2>
-            <p class="text-gray-400 text-center mb-16">My technical skills and certifications.</p>
+    <section id="tech" class="py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">🧑‍💻 Tech Stack —</h2>
+            <p class="text-gray-400 text-center mb-12 md:mb-16 text-sm md:text-base">My technical skills and certifications.</p>
             
-            <div class="card rounded-lg p-8 mb-8">
-                <!-- <div class="text-center mb-8">
-                    <div class="flex items-center justify-center mb-4">
-                        <i class="fas fa-code text-cyan text-2xl mr-3"></i>
-                        <h3 class="text-2xl font-bold text-white">Tech Stack —</h3>
-                    </div>
-                    <p class="text-gray-400">My technical skills automatically analyzed from GitHub repositories and contributions.</p>
-                </div> -->
-                
+            <div class="card rounded-lg p-4 md:p-8 mb-6 md:mb-8">
                 <!-- Top Skills Analysis -->
-                <div class="mb-8">
-                    <div class="flex items-center mb-6">
+                <div class="mb-6 md:mb-8">
+                    <div class="flex items-center mb-4 md:mb-6">
                         <i class="fas fa-chart-bar text-cyan mr-2"></i>
-                        <h4 class="text-lg font-semibold text-white">Top Skills Analysis</h4>
+                        <h4 class="text-base md:text-lg font-semibold text-white">Top Skills Analysis</h4>
                     </div>
                     
                     <!-- Skill Categories -->
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="category-btn text-black px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition" data-category="backend" style="background: #c77dff;">Backend</span>
-                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="mobile">Mobile</span>
-                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="frontend">Frontend</span>
-                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="systems">Systems</span>
-                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="cloud">Cloud</span>
-                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="ai">AI</span>
-                        <span class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="architecture">Architecture</span>
+                    <div class="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
+                        <span class="category-btn text-black px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium cursor-pointer transition" data-category="backend" style="background: #c77dff;">Backend</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="mobile">Mobile</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="frontend">Frontend</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="systems">Systems</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="cloud">Cloud</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="ai">AI</span>
+                        <span class="category-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-category="architecture">Architecture</span>
                     </div>
                     
                     <!-- Skills with Progress Bars -->
-                    <div id="skillsContainer" class="space-y-6"></div>
+                    <div id="skillsContainer" class="space-y-4 md:space-y-6"></div>
                 </div>
 
                 <!-- View Complete Tech Stack Button -->
                 <div class="text-center mb-3">
-                    <button id="techStackBtn" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-cyan border border-cyan px-6 py-3 rounded-lg transition">
+                    <button id="techStackBtn" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-cyan border border-cyan px-4 md:px-6 py-3 rounded-lg transition text-sm md:text-base">
                         <i class="fas fa-code mr-2"></i>
                         View Complete Tech Stack
                     </button>
@@ -576,52 +661,49 @@
     </section>
 
     <!-- GitHub Public Stats Section -->
-    <section id="github" class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <!-- <h3 class="text-2xl font-bold text-center mb-4 text-white">GitHub Public Stats</h3>
-            <p class="text-gray-400 text-center mb-8">A visualization of my coding activities and contributions on GitHub.</p> -->
-
-            <h2 class="text-4xl font-bold text-center mb-4">GitHub Public Stats</h2>
-            <p class="text-gray-400 text-center mb-16">A visualization of my coding activities and contributions on GitHub.</p>
+    <section id="github" class="py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">GitHub Public Stats</h2>
+            <p class="text-gray-400 text-center mb-12 md:mb-16 text-sm md:text-base">A visualization of my coding activities and contributions on GitHub.</p>
             
             <!-- Stats Cards -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
-                    <div class="text-2xl mb-2" style="color: #c77dff;">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-3 md:p-4 text-center">
+                    <div class="text-lg md:text-2xl mb-2" style="color: #c77dff;">
                         <i class="fas fa-folder"></i>
                     </div>
-                    <div class="text-2xl font-bold text-white">21</div>
-                    <div class="text-sm text-gray-400">Repositories</div>
+                    <div class="text-lg md:text-2xl font-bold text-white">21</div>
+                    <div class="text-xs md:text-sm text-gray-400">Repositories</div>
                 </div>
-                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
-                    <div class="text-2xl mb-2" style="color: #9d4edd;">
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-3 md:p-4 text-center">
+                    <div class="text-lg md:text-2xl mb-2" style="color: #9d4edd;">
                         <i class="fas fa-star"></i>
                     </div>
-                    <div class="text-2xl font-bold text-white">0</div>
-                    <div class="text-sm text-gray-400">Stars</div>
+                    <div class="text-lg md:text-2xl font-bold text-white">0</div>
+                    <div class="text-xs md:text-sm text-gray-400">Stars</div>
                 </div>
-                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
-                    <div class="text-2xl mb-2" style="color: #7b2cbf;">
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-3 md:p-4 text-center">
+                    <div class="text-lg md:text-2xl mb-2" style="color: #7b2cbf;">
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="text-2xl font-bold text-white">7</div>
-                    <div class="text-sm text-gray-400">Followers</div>
+                    <div class="text-lg md:text-2xl font-bold text-white">7</div>
+                    <div class="text-xs md:text-sm text-gray-400">Followers</div>
                 </div>
-                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
-                    <div class="text-2xl mb-2" style="color: #5a189a;">
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-3 md:p-4 text-center">
+                    <div class="text-lg md:text-2xl mb-2" style="color: #5a189a;">
                         <i class="fas fa-code"></i>
                     </div>
-                    <div class="text-2xl font-bold text-white">338</div>
-                    <div class="text-sm text-gray-400">Contributions</div>
+                    <div class="text-lg md:text-2xl font-bold text-white">338</div>
+                    <div class="text-xs md:text-sm text-gray-400">Contributions</div>
                 </div>
             </div>
             
             <!-- GitHub Stats and Languages -->
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <!-- GitHub Stats -->
-                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
-                    <h4 class="text-lg font-semibold text-cyan mb-4">Breeha Qasim's GitHub Stats</h4>
-                    <div class="space-y-3 text-sm">
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 md:p-6">
+                    <h4 class="text-base md:text-lg font-semibold text-cyan mb-4">Breeha Qasim's GitHub Stats</h4>
+                    <div class="space-y-3 text-xs md:text-sm">
                         <div class="flex items-center">
                             <i class="fas fa-star text-yellow-400 mr-2"></i>
                             <span class="text-gray-300">Total Stars Earned:</span>
@@ -651,22 +733,22 @@
                     
                     <!-- Grade Circle -->
                     <div class="flex justify-center mt-6">
-                        <div class="relative w-20 h-20">
-                            <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                        <div class="relative w-16 md:w-20 h-16 md:h-20">
+                            <svg class="w-16 md:w-20 h-16 md:h-20 transform -rotate-90" viewBox="0 0 36 36">
                                 <circle cx="18" cy="18" r="16" fill="none" stroke="#374151" stroke-width="2"/>
                                 <circle cx="18" cy="18" r="16" fill="none" stroke="#c77dff" stroke-width="2" 
                                         stroke-dasharray="85, 100" stroke-linecap="round"/>
                             </svg>
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <span class="text-xl font-bold text-white">B+</span>
+                                <span class="text-lg md:text-xl font-bold text-white">B+</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Most Used Languages -->
-                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
-                    <h4 class="text-lg font-semibold text-cyan mb-4">Most Used Languages</h4>
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 md:p-6">
+                    <h4 class="text-base md:text-lg font-semibold text-cyan mb-4">Most Used Languages</h4>
                     
                     <!-- Language Bar -->
                     <div class="mb-6">
@@ -680,7 +762,7 @@
                     </div>
                     
                     <!-- Language Stats -->
-                    <div class="grid grid-cols-2 gap-3 text-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
                         <div class="flex items-center">
                             <div class="w-3 h-3 rounded-full mr-2" style="background: #c77dff;"></div>
                             <span class="text-gray-300">C++</span>
@@ -734,8 +816,8 @@
             </div>
             
             <!-- View Full GitHub Profile Button -->
-            <div class="text-center mt-8">
-                <a href="https://github.com/breehaqasim" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+            <div class="text-center mt-6 md:mt-8">
+                <a href="https://github.com/breehaqasim" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 md:px-6 py-3 rounded-lg transition border border-gray-600 text-sm md:text-base">
                     <i class="fab fa-github mr-2"></i>
                     View Full GitHub Profile
                 </a>
@@ -744,49 +826,49 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-4">Education</h2>
-            <p class="text-gray-400 text-center mb-16">My academic journey and achievements.</p>
+    <section id="education" class="py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">Education</h2>
+            <p class="text-gray-400 text-center mb-12 md:mb-16 text-sm md:text-base">My academic journey and achievements.</p>
             
-            <div class="space-y-8">
+            <div class="space-y-6 md:space-y-8">
                 <!-- Current Education -->
-                <div class="card rounded-lg p-8">
-                    <div class="flex justify-between items-start mb-4">
+                <div class="card rounded-lg p-4 md:p-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4 space-y-3 md:space-y-0">
                         <div>
-                            <h3 class="text-2xl font-bold text-cyan">Habib University</h3>
-                            <p class="text-lg text-gray-300">BS in Computer Science</p>
-                            <p class="text-gray-400">CGPA: 3.55 | 80% Merit-Based Scholarship</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-cyan">Habib University</h3>
+                            <p class="text-base md:text-lg text-gray-300">BS in Computer Science</p>
+                            <p class="text-sm md:text-base text-gray-400">CGPA: 3.55 | 80% Merit-Based Scholarship</p>
                         </div>
-                        <span class="bg-cyan text-black px-3 py-1 rounded-full text-sm font-medium">Aug 2022 - Present</span>
+                        <span class="bg-cyan text-black px-3 py-1 rounded-full text-xs md:text-sm font-medium self-start">Aug 2022 - Present</span>
                     </div>
                     <div>
-                        <h4 class="text-cyan font-semibold mb-2">Relevant Courses:</h4>
-                        <p class="text-gray-300">Programming Fundamentals, Data Structures & Algorithms, Database Systems, Object Oriented Programming, Computer Architecture, Digital Logic Design, Operating Systems, Graph Data Science, Software Engineering, Data Science, Linear Algebra, Probability & Statistics</p>
+                        <h4 class="text-cyan font-semibold mb-2 text-sm md:text-base">Relevant Courses:</h4>
+                        <p class="text-gray-300 text-sm md:text-base">Programming Fundamentals, Data Structures & Algorithms, Database Systems, Object Oriented Programming, Computer Architecture, Digital Logic Design, Operating Systems, Graph Data Science, Software Engineering, Data Science, Linear Algebra, Probability & Statistics</p>
                     </div>
                 </div>
 
                 <!-- A Levels -->
-                <div class="card rounded-lg p-8">
-                    <div class="flex justify-between items-start mb-4">
+                <div class="card rounded-lg p-4 md:p-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4 space-y-3 md:space-y-0">
                         <div>
-                            <h3 class="text-2xl font-bold text-cyan">Nixor College</h3>
-                            <p class="text-lg text-gray-300">Cambridge International A Levels</p>
-                            <p class="text-gray-400">3 A's – Mathematics, Physics, Computer Science</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-cyan">Nixor College</h3>
+                            <p class="text-base md:text-lg text-gray-300">Cambridge International A Levels</p>
+                            <p class="text-sm md:text-base text-gray-400">3 A's – Mathematics, Physics, Computer Science</p>
                         </div>
-                        <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Sep 2020 - Aug 2022</span>
+                        <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-xs md:text-sm self-start">Sep 2020 - Aug 2022</span>
                     </div>
                 </div>
 
                 <!-- O Levels -->
-                <div class="card rounded-lg p-8">
-                    <div class="flex justify-between items-start mb-4">
+                <div class="card rounded-lg p-4 md:p-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4 space-y-3 md:space-y-0">
                         <div>
-                            <h3 class="text-2xl font-bold text-cyan">The City School, Darakshan Campus</h3>
-                            <p class="text-lg text-gray-300">Cambridge International O Levels</p>
-                            <p class="text-gray-400">4 A*s, 3 As, 1 B</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-cyan">The City School, Darakshan Campus</h3>
+                            <p class="text-base md:text-lg text-gray-300">Cambridge International O Levels</p>
+                            <p class="text-sm md:text-base text-gray-400">4 A*s, 3 As, 1 B</p>
                         </div>
-                        <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Aug 2017 - Dec 2020</span>
+                        <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-xs md:text-sm self-start">Aug 2017 - Dec 2020</span>
                     </div>
                 </div>
             </div>
@@ -794,35 +876,35 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8 text-cyan">Let's Connect!</h2>
-            <p class="text-gray-400 mb-12 text-lg leading-relaxed">I'm currently open to new opportunities and collaborations. Whether you have a project in mind, a question, or just want to say hi, feel free to reach out!</p>
+    <section id="contact" class="py-12 md:py-20">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-cyan">Let's Connect!</h2>
+            <p class="text-gray-400 mb-8 md:mb-12 text-base md:text-lg leading-relaxed px-4">I'm currently open to new opportunities and collaborations. Whether you have a project in mind, a question, or just want to say hi, feel free to reach out!</p>
             
             <!-- Get in Touch Button -->
-            <div class="mb-16">
-                <a href="mailto:breehaaqasim@gmail.com" class="inline-flex items-center bg-cyan text-black px-8 py-4 rounded-lg font-semibold text-lg transition hover:bg-opacity-90">
-                    <i class="fas fa-envelope mr-3"></i>
+            <div class="mb-12 md:mb-16">
+                <a href="mailto:breehaaqasim@gmail.com" class="inline-flex items-center bg-cyan text-black px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition hover:bg-opacity-90">
+                    <i class="fas fa-envelope mr-2 md:mr-3"></i>
                     Get in Touch
                 </a>
             </div>
             
             <!-- Divider Line -->
-            <div class="border-t border-gray-700 mb-12"></div>
+            <div class="border-t border-gray-700 mb-8 md:mb-12"></div>
             
             <!-- Contact Options -->
-            <p class="text-gray-400 mb-8">Or connect with me directly:</p>
+            <p class="text-gray-400 mb-6 md:mb-8 text-sm md:text-base">Or connect with me directly:</p>
             
-            <div class="flex flex-wrap justify-center gap-6 mb-12">
-                <a href="https://github.com/breehaqasim" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+            <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-6 mb-8 md:mb-12">
+                <a href="https://github.com/breehaqasim" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 md:px-6 py-3 rounded-lg transition border border-gray-600 text-sm md:text-base">
                     <i class="fab fa-github mr-2"></i>
                     GitHub
                 </a>
-                <a href="https://linkedin.com/in/breeha-qasim-a86854213" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+                <a href="https://linkedin.com/in/breeha-qasim-a86854213" target="_blank" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 md:px-6 py-3 rounded-lg transition border border-gray-600 text-sm md:text-base">
                     <i class="fab fa-linkedin mr-2"></i>
                     LinkedIn
                 </a>
-                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition border border-gray-600">
+                <a href="Breeha Qasim - Resume.pdf" download="Breeha_Qasim_Resume.pdf" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 md:px-6 py-3 rounded-lg transition border border-gray-600 text-sm md:text-base">
                     <i class="fas fa-download mr-2"></i>
                     Download CV
                 </a>
@@ -830,7 +912,7 @@
             
             <!-- Email -->
             <div class="text-center">
-                <p class="text-gray-400">Email: 
+                <p class="text-gray-400 text-sm md:text-base">Email: 
                     <a href="mailto:breehaaqasim@gmail.com" class="text-cyan hover:underline">breehaaqasim@gmail.com</a>
                 </p>
             </div>
@@ -841,38 +923,38 @@
     <div id="techStackModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 rounded-lg border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-hidden">
             <!-- Modal Header -->
-            <div class="flex items-center justify-between p-6 border-b border-gray-700">
+            <div class="flex items-center justify-between p-4 md:p-6 border-b border-gray-700">
                 <div class="flex items-center">
-                    <i class="fas fa-code text-cyan text-xl mr-3"></i>
-                    <h3 class="text-xl font-bold text-white">Complete Tech Stack</h3>
+                    <i class="fas fa-code text-cyan text-lg md:text-xl mr-2 md:mr-3"></i>
+                    <h3 class="text-lg md:text-xl font-bold text-white">Complete Tech Stack</h3>
                 </div>
-                <span class="text-gray-400 text-sm">< Tools, frameworks, and technologies I work with /></span>
+                <span class="hidden md:block text-gray-400 text-sm">< Tools, frameworks, and technologies I work with /></span>
                 <button id="closeModal" class="text-gray-400 hover:text-white transition">
-                    <i class="fas fa-times text-xl"></i>
+                    <i class="fas fa-times text-lg md:text-xl"></i>
                 </button>
             </div>
             
             <!-- Modal Body -->
-            <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+            <div class="p-4 md:p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
                 <!-- Category Tabs -->
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <button class="modal-tab-btn text-white px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition active" data-modal-category="all" style="background: #c77dff;">All Technologies</button>
-                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="languages">Languages</button>
-                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="frameworks">Frameworks</button>
-                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="databases">Databases</button>
-                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="tools">Tools</button>
-                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="cloud">Cloud</button>
-                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="other">Other</button>
+                <div class="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
+                    <button class="modal-tab-btn text-white px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium cursor-pointer transition active" data-modal-category="all" style="background: #c77dff;">All Technologies</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="languages">Languages</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="frameworks">Frameworks</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="databases">Databases</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="tools">Tools</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="cloud">Cloud</button>
+                    <button class="modal-tab-btn bg-gray-700 text-gray-300 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm border border-gray-600 cursor-pointer transition hover:bg-gray-600" data-modal-category="other">Other</button>
                 </div>
                 
                 <!-- Technologies Grid -->
-                <div id="modalTechGrid" class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div id="modalTechGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
                     <!-- Technology items will be populated by JavaScript -->
                 </div>
                 
                 <!-- Close Button -->
-                <div class="flex justify-center mt-8">
-                    <button id="closeModalBtn" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-cyan border border-cyan px-6 py-3 rounded-lg transition">
+                <div class="flex justify-center mt-6 md:mt-8">
+                    <button id="closeModalBtn" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-cyan border border-cyan px-4 md:px-6 py-3 rounded-lg transition text-sm md:text-base">
                         <i class="fas fa-times mr-2"></i>
                         Close
                     </button>
@@ -1390,6 +1472,45 @@
                 updateModalCategoryButtons(category);
                 renderModalTechnologies(category);
             });
+        });
+
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('open');
+            mobileOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close mobile menu function
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close mobile menu button
+        closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu when clicking overlay
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu when clicking nav links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+            }
         });
     </script>
 </body>
